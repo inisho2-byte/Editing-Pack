@@ -1,0 +1,237 @@
+{
+  "contract_type": "editorial-intent",
+  "schema_version": "1.0.0",
+  "project_id": "synthetic-demo-001",
+  "created_at": "2026-07-28T15:10:00Z",
+  "production_context": {
+    "path": "contracts/production-context.json",
+    "sha256": "1111111111111111111111111111111111111111111111111111111111111111"
+  },
+  "core_message": "A premium edit uses one post-cut clock for every timed layer.",
+  "promise": "The viewer will see why caption and graphic drift begins before rendering.",
+  "proof_strategy": "Show the same cut with pre-cut timestamps and retimed post-cut timestamps.",
+  "payoff": "A simple one-clock diagram resolves the problem and gives the viewer an actionable rule.",
+  "hook_hypothesis": {
+    "mechanism": "contrarian_claim",
+    "claim": "Your captions are not drifting because of the caption renderer.",
+    "viewer_question": "Then where does the drift come from?",
+    "expected_behavior": "The viewer stays to see the hidden timing failure."
+  },
+  "emotional_curve": [
+    {
+      "position": 0,
+      "emotion": "surprise",
+      "intensity": 0.7,
+      "reason": "The opening contradicts the expected diagnosis."
+    },
+    {
+      "position": 0.55,
+      "emotion": "concern",
+      "intensity": 0.8,
+      "reason": "The side-by-side proof reveals how every timed layer can drift."
+    },
+    {
+      "position": 1,
+      "emotion": "confidence",
+      "intensity": 0.9,
+      "reason": "The one-clock rule gives a memorable solution."
+    }
+  ],
+  "open_loop_ledger": [
+    {
+      "loop_id": "loop-drift-cause",
+      "question": "What actually causes caption and graphic drift?",
+      "opened_scene_id": "scene-hook",
+      "payoff_scene_id": "scene-payoff",
+      "stakes": "Without the answer, the viewer keeps fixing the wrong layer."
+    }
+  ],
+  "scenes": [
+    {
+      "scene_id": "scene-hook",
+      "order": 1,
+      "role": "stop_hook",
+      "primary_job": "Break the viewer's assumed diagnosis and open the core question.",
+      "source_beat_ids": [
+        "beat-hook-01"
+      ],
+      "viewer_state": {
+        "entering_question": "Why do my captions drift?",
+        "entering_emotion": "frustrated",
+        "exit_knowledge": "The caption renderer may not be the cause.",
+        "exit_emotion": "curious"
+      },
+      "information_or_emotion_delivered": "A precise contradiction creates useful tension.",
+      "proof": {
+        "status": "not_applicable",
+        "description": "",
+        "source_ids": [],
+        "on_screen_evidence": ""
+      },
+      "open_loops": {
+        "opened": [
+          "loop-drift-cause"
+        ],
+        "advanced": [],
+        "closed": []
+      },
+      "visual_role": {
+        "mode": "talking_head",
+        "purpose": "Use direct eye contact to make the contradiction feel personal.",
+        "composition": "Tight centered crop with clean negative space above captions."
+      },
+      "caption_role": {
+        "mode": "semantic_clause",
+        "purpose": "Preserve the full contrast without fragmenting it into single words."
+      },
+      "graphic_role": {
+        "information_shape": "single_fact",
+        "purpose": "Emphasize the words NOT THE RENDERER once."
+      },
+      "audio_role": {
+        "primary": "dialogue",
+        "dialogue": "Dry, close, intelligible voice.",
+        "music": "Low pulse begins after the first clause.",
+        "ambience": "Clean room tone.",
+        "sound_effects": "One restrained impact on the contradiction.",
+        "silence_intent": "A 120 ms pre-roll creates a clean start."
+      },
+      "timing": {
+        "planned_start_seconds": 0,
+        "planned_end_seconds": 4,
+        "duration_rationale": "Enough time to land one contradiction and the resulting question."
+      },
+      "failure_conditions": [
+        "The opening names the solution before establishing the misconception.",
+        "Animation competes with the first sentence."
+      ]
+    },
+    {
+      "scene_id": "scene-proof",
+      "order": 2,
+      "role": "proof_demonstration",
+      "primary_job": "Demonstrate that pre-cut timestamps diverge after cleanup cuts.",
+      "source_beat_ids": [
+        "beat-proof-01"
+      ],
+      "viewer_state": {
+        "entering_question": "If rendering is not the cause, what is?",
+        "entering_emotion": "curious",
+        "exit_knowledge": "Pre-cut timing becomes invalid after the EDL changes duration.",
+        "exit_emotion": "concerned"
+      },
+      "information_or_emotion_delivered": "A visible before-and-after timeline makes the causal chain undeniable.",
+      "proof": {
+        "status": "required",
+        "description": "Compare the same word cue on source and post-cut clocks.",
+        "source_ids": [
+          "talking-head-01"
+        ],
+        "on_screen_evidence": "Split-screen timeline with the cue visibly late in the pre-cut version."
+      },
+      "open_loops": {
+        "opened": [],
+        "advanced": [
+          "loop-drift-cause"
+        ],
+        "closed": []
+      },
+      "visual_role": {
+        "mode": "diagram",
+        "purpose": "Show causality, not decorate the explanation.",
+        "composition": "Two synchronized horizontal clocks with one highlighted word cue."
+      },
+      "caption_role": {
+        "mode": "semantic_clause",
+        "purpose": "Keep the spoken explanation readable while the diagram carries the comparison."
+      },
+      "graphic_role": {
+        "information_shape": "comparison",
+        "purpose": "Contrast pre-cut and post-cut timestamps."
+      },
+      "audio_role": {
+        "primary": "dialogue",
+        "dialogue": "Narration leads the comparison.",
+        "music": "Pulse rises slightly under the mismatch.",
+        "ambience": "None beyond clean room tone.",
+        "sound_effects": "Soft tick at each clock marker.",
+        "silence_intent": "No unmotivated dropouts."
+      },
+      "timing": {
+        "planned_start_seconds": 4,
+        "planned_end_seconds": 21,
+        "duration_rationale": "The comparison needs time for the viewer to inspect both clocks."
+      },
+      "failure_conditions": [
+        "The diagram cannot be understood without pausing.",
+        "The proof uses a different cut than the narrated example."
+      ]
+    },
+    {
+      "scene_id": "scene-payoff",
+      "order": 3,
+      "role": "payoff",
+      "primary_job": "Resolve the loop with a durable one-clock production rule.",
+      "source_beat_ids": [
+        "beat-payoff-01"
+      ],
+      "viewer_state": {
+        "entering_question": "How do I prevent the drift?",
+        "entering_emotion": "concerned",
+        "exit_knowledge": "All timed layers must derive from retimed post-cut words.",
+        "exit_emotion": "confident"
+      },
+      "information_or_emotion_delivered": "A compact rule converts diagnosis into action.",
+      "proof": {
+        "status": "required",
+        "description": "Show captions and graphics aligned to the retimed_words artifact.",
+        "source_ids": [
+          "timeline-diagram-01"
+        ],
+        "on_screen_evidence": "One post-cut clock fans out to captions, graphics, audio cues, and review."
+      },
+      "open_loops": {
+        "opened": [],
+        "advanced": [],
+        "closed": [
+          "loop-drift-cause"
+        ]
+      },
+      "visual_role": {
+        "mode": "motion_graphic",
+        "purpose": "Compress the final system into one memorable visual.",
+        "composition": "Single central clock with four calm outbound branches."
+      },
+      "caption_role": {
+        "mode": "emphasis_only",
+        "purpose": "Land ONE POST-CUT CLOCK as the takeaway."
+      },
+      "graphic_role": {
+        "information_shape": "hierarchy",
+        "purpose": "Show the clock as the source of truth for downstream timing."
+      },
+      "audio_role": {
+        "primary": "dialogue",
+        "dialogue": "Final rule is delivered slowly and cleanly.",
+        "music": "Resolve to a stable chord.",
+        "ambience": "None.",
+        "sound_effects": "Subtle branch-on clicks.",
+        "silence_intent": "Leave 300 ms after the final rule."
+      },
+      "timing": {
+        "planned_start_seconds": 21,
+        "planned_end_seconds": 35,
+        "duration_rationale": "The system graphic needs a deliberate reveal and readable final hold."
+      },
+      "failure_conditions": [
+        "The viewer leaves without knowing which artifact owns time.",
+        "The CTA arrives before the visual system resolves."
+      ]
+    }
+  ],
+  "ending_behavior": {
+    "type": "call_to_action",
+    "intended_aftertaste": "The workflow feels simpler and controllable.",
+    "viewer_next_action": "Save the reel and use retimed post-cut words on the next edit."
+  }
+}

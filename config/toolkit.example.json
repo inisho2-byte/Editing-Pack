@@ -1,0 +1,30 @@
+{
+  "schema": "editing-pack-config/v1",
+  "workspace_root": null,
+  "external_tools_root": null,
+  "tools": {
+    "ffmpeg": null,
+    "ffprobe": null,
+    "node": null,
+    "hyperframes_cli": null,
+    "browser": null,
+    "gsap_runtime": null,
+    "inter_regular_font": null,
+    "inter_bold_font": null
+  },
+  "providers": {
+    "ideogram": {
+      "api_key_env": "IDEOGRAM_API_KEY",
+      "execute_by_default": false
+    }
+  },
+  "native_apps": {
+    "resolve": {
+      "enabled": false,
+      "expected_project_id": null,
+      "expected_project_name": null,
+      "mailbox_dir": null
+    }
+  },
+  "note": "Copy to untracked toolkit.local.json or an explicit external config. Configure workspace_root outside the toolkit before job writes. Null tools use documented discovery or report missing; null is not an approval."
+}

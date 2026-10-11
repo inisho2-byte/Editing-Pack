@@ -1,0 +1,13 @@
+{
+  "schema": "legacy-caption-qa/v0",
+  "status": "pass",
+  "post_cut_timing": {
+    "source_of_truth": "post-cut-retimed-words",
+    "forced_alignment_sha256": "replace-with-envelope-sha256",
+    "timeline_map_sha256": "replace-with-file-sha256",
+    "retimed_words_sha256": "replace-with-file-sha256",
+    "timeline_fingerprint": "replace-with-canonical-timeline-fingerprint"
+  },
+  "notes": "Example legacy source only. Wrap it with the CLI after replacing bindings with observed hashes."
+}
+

@@ -1,0 +1,122 @@
+{
+  "contract_type": "post-publish-learning",
+  "schema_version": "1.0.0",
+  "project_id": "synthetic-demo-001",
+  "created_at": "2026-08-02T17:00:00Z",
+  "production_context": {
+    "path": "contracts/production-context.json",
+    "sha256": "1111111111111111111111111111111111111111111111111111111111111111"
+  },
+  "experiment": {
+    "path": "contracts/short-form-experiment.json",
+    "sha256": "1212121212121212121212121212121212121212121212121212121212121212"
+  },
+  "publication": {
+    "platform": "instagram_reels",
+    "published_at": "2026-07-29T18:00:00Z",
+    "url": "https://example.com/synthetic-demo-001",
+    "artifact_sha256": "9999999999999999999999999999999999999999999999999999999999999999"
+  },
+  "observation_window": {
+    "start": "2026-07-29T18:00:00Z",
+    "end": "2026-08-01T18:00:00Z",
+    "qualified_views": 4800
+  },
+  "baseline_metrics": [
+    {
+      "metric": "hold_3s",
+      "value": 0.62,
+      "unit": "ratio",
+      "source": "Comparable educational reels from the previous 30 days."
+    },
+    {
+      "metric": "save_rate",
+      "value": 0.04,
+      "unit": "ratio",
+      "source": "Comparable educational reels from the previous 30 days."
+    }
+  ],
+  "observed_metrics": [
+    {
+      "metric": "hold_3s",
+      "value": 0.7,
+      "unit": "ratio",
+      "source": "Instagram professional dashboard export."
+    },
+    {
+      "metric": "save_rate",
+      "value": 0.05,
+      "unit": "ratio",
+      "source": "Instagram professional dashboard export."
+    }
+  ],
+  "variant_outcomes": [
+    {
+      "variant_id": "variant-contrarian",
+      "artifact_sha256": "9999999999999999999999999999999999999999999999999999999999999999",
+      "sample_size": 2400,
+      "metrics": [
+        {
+          "metric": "hold_3s",
+          "value": 0.7,
+          "unit": "ratio",
+          "source": "Platform experiment export."
+        },
+        {
+          "metric": "completion_rate",
+          "value": 0.48,
+          "unit": "ratio",
+          "source": "Platform experiment export."
+        }
+      ],
+      "outcome": "winner"
+    },
+    {
+      "variant_id": "variant-outcome",
+      "artifact_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "sample_size": 2400,
+      "metrics": [
+        {
+          "metric": "hold_3s",
+          "value": 0.64,
+          "unit": "ratio",
+          "source": "Platform experiment export."
+        },
+        {
+          "metric": "completion_rate",
+          "value": 0.47,
+          "unit": "ratio",
+          "source": "Platform experiment export."
+        }
+      ],
+      "outcome": "loser"
+    }
+  ],
+  "insights": [
+    {
+      "claim": "Contrarian diagnosis improved early hold without harming completion.",
+      "status": "supported",
+      "evidence": "Three-second hold increased by 9.4% relative while completion remained within two percentage points.",
+      "scope": "Problem-aware AI creator audiences viewing short educational edits."
+    }
+  ],
+  "next_actions": [
+    "Test the same hook mechanism on a different timing failure.",
+    "Keep the one-clock payoff structure constant."
+  ],
+  "taste_update": {
+    "proposed": true,
+    "rationale": "The restrained technical treatment was selected and performed without the generic-template rejection signal.",
+    "suggested_changes": [
+      "Add calm technical precision as a tested option for workflow explainers."
+    ],
+    "explicit_consent": {
+      "status": "denied",
+      "granted_by": null,
+      "granted_at": null
+    },
+    "applied": false,
+    "profile_before_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "profile_after_sha256": null
+  }
+}

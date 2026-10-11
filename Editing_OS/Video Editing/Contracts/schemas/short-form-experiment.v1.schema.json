@@ -1,0 +1,371 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://arete.local/editing-os/contracts/short-form-experiment/v1",
+  "title": "Editing OS Short-form Experiment v1",
+  "type": "object",
+  "required": [
+    "contract_type",
+    "schema_version",
+    "project_id",
+    "created_at",
+    "production_context",
+    "status",
+    "hypothesis",
+    "primary_metric",
+    "guardrail_metrics",
+    "baseline",
+    "controlled_difference",
+    "variants",
+    "distribution_plan",
+    "decision_rule"
+  ],
+  "properties": {
+    "contract_type": {
+      "const": "short-form-experiment"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "project_id": {
+      "$ref": "#/$defs/identifier"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "production_context": {
+      "$ref": "#/$defs/artifactReference"
+    },
+    "status": {
+      "enum": [
+        "planned",
+        "running",
+        "complete",
+        "cancelled"
+      ]
+    },
+    "hypothesis": {
+      "type": "string",
+      "minLength": 1
+    },
+    "primary_metric": {
+      "$ref": "#/$defs/metricName"
+    },
+    "guardrail_metrics": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/metricName"
+      },
+      "uniqueItems": true
+    },
+    "baseline": {
+      "$ref": "#/$defs/baseline"
+    },
+    "controlled_difference": {
+      "type": "object",
+      "required": [
+        "variable",
+        "kept_constant",
+        "rationale"
+      ],
+      "properties": {
+        "variable": {
+          "enum": [
+            "hook",
+            "opening_visual",
+            "caption_treatment",
+            "proof_order",
+            "payoff",
+            "ending",
+            "title_packaging",
+            "other"
+          ]
+        },
+        "kept_constant": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "rationale": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "variants": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 4,
+      "items": {
+        "$ref": "#/$defs/variant"
+      }
+    },
+    "distribution_plan": {
+      "type": "object",
+      "required": [
+        "platform",
+        "audience_split",
+        "publication_window",
+        "minimum_observation_hours"
+      ],
+      "properties": {
+        "platform": {
+          "type": "string",
+          "minLength": 1
+        },
+        "audience_split": {
+          "type": "string",
+          "minLength": 1
+        },
+        "publication_window": {
+          "type": "string",
+          "minLength": 1
+        },
+        "minimum_observation_hours": {
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "decision_rule": {
+      "type": "object",
+      "required": [
+        "minimum_sample_per_variant",
+        "minimum_lift",
+        "minimum_lift_unit",
+        "guardrail_behavior"
+      ],
+      "properties": {
+        "minimum_sample_per_variant": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "minimum_lift": {
+          "type": "number",
+          "minimum": 0
+        },
+        "minimum_lift_unit": {
+          "enum": [
+            "absolute",
+            "relative"
+          ]
+        },
+        "guardrail_behavior": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "identifier": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{2,127}$"
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "artifactReference": {
+      "type": "object",
+      "required": [
+        "path",
+        "sha256"
+      ],
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sha256": {
+          "$ref": "#/$defs/sha256"
+        }
+      },
+      "additionalProperties": false
+    },
+    "metricName": {
+      "enum": [
+        "hold_1s",
+        "hold_3s",
+        "average_watch_time_seconds",
+        "average_percentage_viewed",
+        "quartile_25_rate",
+        "quartile_50_rate",
+        "quartile_75_rate",
+        "completion_rate",
+        "replay_rate",
+        "share_rate",
+        "save_rate",
+        "comment_rate",
+        "click_through_rate",
+        "conversion_rate",
+        "custom"
+      ]
+    },
+    "metricValue": {
+      "type": "object",
+      "required": [
+        "metric",
+        "value",
+        "unit"
+      ],
+      "properties": {
+        "metric": {
+          "$ref": "#/$defs/metricName"
+        },
+        "value": {
+          "type": "number",
+          "minimum": 0
+        },
+        "unit": {
+          "enum": [
+            "ratio",
+            "seconds",
+            "count",
+            "currency",
+            "custom"
+          ]
+        }
+      },
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "unit": {
+                "const": "ratio"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "value": {
+                "maximum": 1
+              }
+            }
+          }
+        }
+      ]
+    },
+    "baseline": {
+      "type": "object",
+      "required": [
+        "metric",
+        "value",
+        "unit",
+        "window_start",
+        "window_end",
+        "sample_size",
+        "source"
+      ],
+      "properties": {
+        "metric": {
+          "$ref": "#/$defs/metricName"
+        },
+        "value": {
+          "type": "number",
+          "minimum": 0
+        },
+        "unit": {
+          "enum": [
+            "ratio",
+            "seconds",
+            "count",
+            "currency",
+            "custom"
+          ]
+        },
+        "window_start": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "window_end": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "sample_size": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "source": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "unit": {
+                "const": "ratio"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "value": {
+                "maximum": 1
+              }
+            }
+          }
+        }
+      ]
+    },
+    "variant": {
+      "type": "object",
+      "required": [
+        "variant_id",
+        "label",
+        "artifact",
+        "hook",
+        "packaging",
+        "difference",
+        "result"
+      ],
+      "properties": {
+        "variant_id": {
+          "$ref": "#/$defs/identifier"
+        },
+        "label": {
+          "type": "string",
+          "minLength": 1
+        },
+        "artifact": {
+          "$ref": "#/$defs/artifactReference"
+        },
+        "hook": {
+          "type": "string",
+          "minLength": 1
+        },
+        "packaging": {
+          "type": "string",
+          "minLength": 1
+        },
+        "difference": {
+          "type": "string",
+          "minLength": 1
+        },
+        "result": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "#/$defs/metricValue"
+            }
+          ]
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

@@ -1,0 +1,205 @@
+{
+  "schema": "editing-pack-tools-manifest/v1",
+  "status": "standalone configuration implemented; tested setup and optional limits recorded",
+  "tools": [
+    {
+      "id": "blender-mcp",
+      "upstream": "https://github.com/ahujasid/blender-mcp",
+      "revision": "7a0373ec9199183cb460068c4f96aed9c579fb4f",
+      "license": "MIT",
+      "role": "optional Blender app bridge",
+      "distribution": "external-reference-only",
+      "install": "Explicit opt-in; use pinned upstream setup in a separate external directory/environment; never clone into toolkit.",
+      "compatibility": "See docs/capabilities.md and docs/optional-tools.md; upstream pin is not full integration verification.",
+      "source_notice_url": "https://github.com/ahujasid/blender-mcp/blob/7a0373ec9199183cb460068c4f96aed9c579fb4f/LICENSE"
+    },
+    {
+      "id": "claude-code-video-toolkit",
+      "upstream": "https://github.com/digitalsamba/claude-code-video-toolkit",
+      "revision": "4e7b296625e1ec3c4dc8bfac6bc0bdcbaef60962",
+      "license": "MIT",
+      "role": "optional production reference/toolkit",
+      "distribution": "external-reference-only",
+      "install": "Explicit opt-in; use pinned upstream setup in a separate external directory/environment; never clone into toolkit.",
+      "compatibility": "See docs/capabilities.md and docs/optional-tools.md; upstream pin is not full integration verification.",
+      "source_notice_url": "https://github.com/digitalsamba/claude-code-video-toolkit/blob/4e7b296625e1ec3c4dc8bfac6bc0bdcbaef60962/LICENSE"
+    },
+    {
+      "id": "hyperframes",
+      "upstream": "https://github.com/heygen-com/hyperframes",
+      "revision": "8bca7c4417b59b47fca851183a8d47a4565bad0c",
+      "license": "Apache-2.0",
+      "role": "optional HTML authoring/lint/render runtime",
+      "distribution": "external-reference-only",
+      "install": "Explicit opt-in; use pinned upstream setup in a separate external directory/environment; never clone into toolkit.",
+      "compatibility": "See docs/capabilities.md and docs/optional-tools.md; upstream pin is not full integration verification.",
+      "source_notice_url": "https://github.com/heygen-com/hyperframes/blob/8bca7c4417b59b47fca851183a8d47a4565bad0c/LICENSE"
+    },
+    {
+      "id": "open-design",
+      "upstream": "https://github.com/nexu-io/open-design",
+      "revision": "17e255959703a3fad7c8eb7f7b70dcafccc5629a",
+      "license": "Apache-2.0",
+      "role": "optional design specialist",
+      "distribution": "external-reference-only",
+      "install": "Explicit opt-in; use pinned upstream setup in a separate external directory/environment; never clone into toolkit.",
+      "compatibility": "See docs/capabilities.md and docs/optional-tools.md; upstream pin is not full integration verification.",
+      "source_notice_url": "https://github.com/nexu-io/open-design/blob/17e255959703a3fad7c8eb7f7b70dcafccc5629a/LICENSE"
+    },
+    {
+      "id": "OpenMontage",
+      "upstream": "https://github.com/calesthio/OpenMontage",
+      "revision": "9327439db69021ab4b0e2776729bf3b58fdb5a87",
+      "license": "AGPL-3.0 (version 3 text; exact -only/-or-later scope requires upstream grant wording)",
+      "role": "optional scheduler behind owned adapter",
+      "distribution": "external-reference-only",
+      "install": "Explicit opt-in; use pinned upstream setup in a separate external directory/environment; never clone into toolkit.",
+      "compatibility": "See docs/capabilities.md and docs/optional-tools.md; upstream pin is not full integration verification.",
+      "source_notice_url": "https://github.com/calesthio/OpenMontage/blob/9327439db69021ab4b0e2776729bf3b58fdb5a87/LICENSE"
+    },
+    {
+      "id": "playwright-mcp",
+      "upstream": "https://github.com/microsoft/playwright-mcp",
+      "revision": "b8b4183e099f136cbec0388a6088d4aa2f6b9685",
+      "license": "Apache-2.0",
+      "role": "optional browser bridge",
+      "distribution": "external-reference-only",
+      "install": "Explicit opt-in; use pinned upstream setup in a separate external directory/environment; never clone into toolkit.",
+      "compatibility": "See docs/capabilities.md and docs/optional-tools.md; upstream pin is not full integration verification.",
+      "source_notice_url": "https://github.com/microsoft/playwright-mcp/blob/b8b4183e099f136cbec0388a6088d4aa2f6b9685/LICENSE"
+    },
+    {
+      "id": "remotion-superpowers",
+      "upstream": "https://github.com/DojoCodingLabs/remotion-superpowers",
+      "revision": "48c2cfc93a1a58fca75d80bc2205353faed3f23f",
+      "license": "MIT",
+      "role": "optional composition reference",
+      "distribution": "external-reference-only",
+      "install": "Explicit opt-in; use pinned upstream setup in a separate external directory/environment; never clone into toolkit.",
+      "compatibility": "See docs/capabilities.md and docs/optional-tools.md; upstream pin is not full integration verification.",
+      "source_notice_url": "https://github.com/DojoCodingLabs/remotion-superpowers/blob/48c2cfc93a1a58fca75d80bc2205353faed3f23f/LICENSE"
+    },
+    {
+      "id": "video-use",
+      "upstream": "https://github.com/browser-use/video-use",
+      "revision": "43cfc566833548093455c9d4a46bd69913b7e552",
+      "license": "MIT",
+      "role": "optional footage analysis/reframing/grading specialist",
+      "distribution": "external-reference-only",
+      "install": "Explicit opt-in; use pinned upstream setup in a separate external directory/environment; never clone into toolkit.",
+      "compatibility": "See docs/capabilities.md and docs/optional-tools.md; upstream pin is not full integration verification.",
+      "source_notice_url": "https://github.com/browser-use/video-use/blob/43cfc566833548093455c9d4a46bd69913b7e552/LICENSE"
+    },
+    {
+      "id": "voicebox",
+      "upstream": "https://github.com/jamiepine/voicebox",
+      "revision": "8af7efe62fab8d33e2a5dfbedabaa45f68a5184f",
+      "license": "MIT",
+      "role": "optional TTS service",
+      "distribution": "external-reference-only",
+      "install": "Explicit opt-in; use pinned upstream setup in a separate external directory/environment; never clone into toolkit.",
+      "compatibility": "See docs/capabilities.md and docs/optional-tools.md; upstream pin is not full integration verification.",
+      "source_notice_url": "https://github.com/jamiepine/voicebox/blob/8af7efe62fab8d33e2a5dfbedabaa45f68a5184f/LICENSE"
+    },
+    {
+      "id": "whisper",
+      "upstream": "https://github.com/openai/whisper",
+      "revision": "86098128c0b4f24f0e2aa2994de830614b474227",
+      "license": "MIT",
+      "role": "optional diagnostic ASR; not production forced alignment",
+      "distribution": "external-reference-only",
+      "install": "Explicit opt-in; use pinned upstream setup in a separate external directory/environment; never clone into toolkit.",
+      "compatibility": "See docs/capabilities.md and docs/optional-tools.md; upstream pin is not full integration verification.",
+      "source_notice_url": "https://github.com/openai/whisper/blob/86098128c0b4f24f0e2aa2994de830614b474227/LICENSE"
+    },
+    {
+      "id": "hyperframes-cli",
+      "upstream": "https://www.npmjs.com/package/hyperframes",
+      "version": "0.8.146",
+      "license": "Apache-2.0; bundled dependencies retain own terms",
+      "role": "graphics CLI tested with explicit executable selection",
+      "distribution": "external-package-install",
+      "install": "Explicit pinned npm install --ignore-scripts outside toolkit; configure file paths. See docs/installation.md.",
+      "integrity": "sha512-kDVq5m0yf2AuvxzNPwVPGVurjOQ4Gp0Giiamlu5Ak+HlYsjIoJPSHti1dAnYeiFny1jiCokvtU9MUCP1GwwwlQ==",
+      "compatibility": "Installed in isolated setup; owned graphics media/lint tests passed. Full public render workflow pending.",
+      "package": "hyperframes"
+    },
+    {
+      "id": "gsap",
+      "upstream": "https://github.com/greensock/GSAP",
+      "version": "3.15.0",
+      "license": "custom GSAP Standard License",
+      "role": "graphics animation runtime",
+      "distribution": "external-package-install",
+      "install": "Explicit pinned npm install --ignore-scripts outside toolkit; configure file paths. See docs/installation.md.",
+      "compatibility": "Installed in isolated setup; owned graphics media/lint tests passed. Full public render workflow pending.",
+      "package": "gsap",
+      "integrity": "sha512-dMW4CWBTUK1AEEDeZc1g4xpPGIrSf9fJF960qbTZmN/QwZIWY5wgliS6JWl9/25fpTGJrMRtSjGtOmPnfjZB+A==",
+      "asset_sha256": {
+        "dist/gsap.min.js": "92bb9a96476f983d212a2bc4f54c889039c1696dd4461d40a736860938570fbb"
+      }
+    },
+    {
+      "id": "inter",
+      "upstream": "https://github.com/rsms/inter",
+      "version": "5.2.8",
+      "license": "OFL-1.1",
+      "role": "regular/bold graphics font resources",
+      "distribution": "external-package-install",
+      "install": "Explicit pinned npm install --ignore-scripts outside toolkit; configure file paths. See docs/installation.md.",
+      "compatibility": "Installed in isolated setup; owned graphics media/lint tests passed. Full public render workflow pending.",
+      "package": "@fontsource/inter",
+      "integrity": "sha512-P6r5WnJoKiNVV+zvW2xM13gNdFhAEpQ9dQJHt3naLvfg+LkF2ldgSLiF4T41lf1SQCM9QmkqPTn4TH568IRagg==",
+      "font_files": [
+        "files/inter-latin-400-normal.woff2",
+        "files/inter-latin-700-normal.woff2"
+      ],
+      "license_file": "LICENSE",
+      "asset_sha256": {
+        "files/inter-latin-400-normal.woff2": "8909904ab6c872eb994093482a88a28eca2cd95912d7b6fecd72103b0dc07edc",
+        "files/inter-latin-700-normal.woff2": "6f56409fd3d64bb85f7d070bce20749db2d66b6d63cec586cc22d1c761be2491",
+        "LICENSE": "3b0a5fca3d17942cde889069889dedbbbd075e9b599968c82a95f4d944e9b345"
+      }
+    },
+    {
+      "id": "whisperx",
+      "upstream": "https://github.com/m-bain/whisperX",
+      "version": "3.8.6",
+      "license": "BSD-2-Clause; individual models separate",
+      "role": "optional production forced alignment",
+      "distribution": "external-package-install",
+      "install": "Separate opt-in compatible Python environment and individually reviewed model download.",
+      "compatibility": "Not installed/forced alignment not verified in source audit."
+    },
+    {
+      "id": "mcp-python",
+      "upstream": "https://github.com/modelcontextprotocol/python-sdk",
+      "version": "1.26.0",
+      "license": "MIT",
+      "role": "optional Resolve FastMCP v1 wrapper",
+      "distribution": "external-package-install",
+      "install": "Optional requirements-resolve.txt in separate environment",
+      "compatibility": "MCP 1.26.0 import and five-tool discovery passed in isolated environment without native calls. Upstream dependency emits a Pydantic forward-reference warning; native execution remains conditional."
+    },
+    {
+      "id": "ffmpeg",
+      "upstream": "https://www.ffmpeg.org",
+      "version": "9.0.2",
+      "license": "build-dependent LGPL/GPL; inspect actual build",
+      "role": "external media execution/probing",
+      "distribution": "external-install-only",
+      "install": "User-selected FFmpeg/FFprobe executable paths or PATH discovery.",
+      "compatibility": "Source media tests used 9.0.2 full Windows build; public workflow verification pending."
+    },
+    {
+      "id": "jsonschema",
+      "upstream": "https://github.com/python-jsonschema/jsonschema",
+      "version": "4.26.0",
+      "license": "MIT",
+      "role": "core JSON schema validation",
+      "distribution": "external-package-install",
+      "install": "requirements-core.lock.txt in separate environment",
+      "compatibility": "Windows x64 Python 3.11.9 isolated core checks passed."
+    }
+  ]
+}

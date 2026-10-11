@@ -1,0 +1,66 @@
+{
+  "schema": "arete-human-video-review/v2",
+  "artifact_sha256": "GENERATE_WITH_QA_PY",
+  "reviewer": "",
+  "reviewed_at": "",
+  "complete_playback": {
+    "watched_from_start_to_finish": false,
+    "normal_speed": false,
+    "audio_enabled": false,
+    "target_device": ""
+  },
+  "content_accuracy": {
+    "verified": false,
+    "required_source_ids": ["GENERATED_FROM_PRODUCTION_CONTEXT"],
+    "sources_checked": [],
+    "unsupported_or_unverified": []
+  },
+  "checks": [
+    {"id": "complete_playback", "status": "pending", "notes": ""},
+    {"id": "content_accuracy", "status": "pending", "notes": ""},
+    {"id": "first_frame", "status": "pending", "notes": ""},
+    {"id": "last_frame", "status": "pending", "notes": ""},
+    {"id": "scene_boundaries", "status": "pending", "notes": ""},
+    {"id": "transitions", "status": "pending", "notes": ""},
+    {"id": "major_animation_phases", "status": "pending", "notes": ""},
+    {"id": "maximum_density_frames", "status": "pending", "notes": ""},
+    {"id": "layout_and_safe_areas", "status": "pending", "notes": ""},
+    {"id": "typography_and_copy", "status": "pending", "notes": ""},
+    {"id": "motion_purpose_and_coherence", "status": "pending", "notes": ""},
+    {"id": "pacing_and_reading_time", "status": "pending", "notes": ""},
+    {"id": "caption_sync_and_placement", "status": "pending", "notes": ""},
+    {"id": "audio_clarity_and_sync", "status": "pending", "notes": ""},
+    {"id": "visual_consistency", "status": "pending", "notes": ""},
+    {"id": "accessibility_and_flashing", "status": "pending", "notes": ""},
+    {"id": "target_device_and_platform_ui", "status": "pending", "notes": ""}
+  ],
+  "review_points": [
+    {
+      "id": "GENERATED_WITH_QA_PY",
+      "at_s": 0.0,
+      "reasons": ["first-frame"],
+      "status": "pending",
+      "notes": ""
+    }
+  ],
+  "scene_contracts": [],
+  "universal_criteria": {
+    "clarity": {"score": null, "notes": ""},
+    "story": {"score": null, "notes": ""},
+    "emotion": {"score": null, "notes": ""},
+    "retention": {"score": null, "notes": ""},
+    "memorability": {"score": null, "notes": ""}
+  },
+  "creative_scores": {
+    "story_and_clarity": null,
+    "visual_hierarchy_and_layout": null,
+    "typography": null,
+    "motion_and_choreography": null,
+    "timing_and_pacing": null,
+    "visual_consistency": null,
+    "audio_design": null,
+    "captions_and_accessibility": null
+  },
+  "accepted_minor_issue_codes": [],
+  "notes": ""
+}

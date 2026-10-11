@@ -1,0 +1,32 @@
+{
+  "schema": "editing-pack-candidate-status/v1",
+  "stage": "clean-verified-local-candidate",
+  "release_version": "0.1.0-rc.1",
+  "publication_approved": false,
+  "standalone_verified": true,
+  "examples_are_synthetic": true,
+  "pending_steps": [
+    13,
+    14,
+    15,
+    16
+  ],
+  "core_setup_verified": true,
+  "tested_platform": "Windows x64",
+  "tested_python": "3.11.9",
+  "owned_checks_passed": 213,
+  "optional_limits": [
+    "WhisperX/models not executed",
+    "native project editing not verified",
+    "real production source-to-final requires job-specific verification",
+    "other operating systems/Python versions unverified",
+    "tested Edge Windows version preflight failed"
+  ],
+  "documentation_verified": true,
+  "synthetic_walkthrough_verified": true,
+  "privacy_scan_completed": true,
+  "export_negative_cases_verified": 27,
+  "clean_environment_verified": true,
+  "browser_render_verified": true,
+  "tested_browser": "Chrome Headless Shell 152.0.7977.30"
+}

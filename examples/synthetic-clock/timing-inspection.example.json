@@ -1,0 +1,27 @@
+{
+  "schema": "editing-pack-synthetic-timing-inspection/v1",
+  "synthetic": true,
+  "review_status": "SIMULATED inspection; no human reviewer or approval",
+  "forced_alignment": false,
+  "publication_approved": false,
+  "ranges": [
+    {
+      "source_start_s": 0,
+      "source_end_s": 3,
+      "output_start_s": 0,
+      "output_end_s": 3
+    },
+    {
+      "source_start_s": 5,
+      "source_end_s": 8,
+      "output_start_s": 3,
+      "output_end_s": 6
+    }
+  ],
+  "example_word": {
+    "text": "the",
+    "source_start_s": 5.3,
+    "output_start_s": 3.3
+  },
+  "production_edl": false
+}

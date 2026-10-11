@@ -1,0 +1,20 @@
+{
+  "schema": "arete-evidence-envelope/v1",
+  "evidence_id": "graphics-qa",
+  "evidence_type": "graphics_qa",
+  "stage": "before-final-render",
+  "producer": "editing-os-orchestration-adapter",
+  "producer_version": "1.0.0",
+  "status": "pass",
+  "source_path": "C:/ABSOLUTE/PATH/graphics-qa.json",
+  "source_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+  "source_schema": "arete-graphics-qa/v1",
+  "timeline_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+  "taste_selection_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+  "selected_option_id": "option-selected-by-human",
+  "treatment_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+  "payload": {
+    "automated_checks_passed": true,
+    "source_status": "pass"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://arete.local/editing-os/quality/determinism-waiver/v1",
+  "title": "ARETE Determinism Waiver v1",
+  "type": "object",
+  "required": [
+    "schema",
+    "waiver_id",
+    "approved_by",
+    "approved_at",
+    "reason",
+    "scope",
+    "risk_acceptance",
+    "alternative_verification"
+  ],
+  "properties": {
+    "schema": {"const": "arete-determinism-waiver/v1"},
+    "waiver_id": {"type": "string", "minLength": 1},
+    "approved_by": {"type": "string", "minLength": 1},
+    "approved_at": {"type": "string", "format": "date-time"},
+    "reason": {"type": "string", "minLength": 1},
+    "scope": {"type": "string", "minLength": 1},
+    "risk_acceptance": {"type": "string", "minLength": 1},
+    "alternative_verification": {
+      "type": "object",
+      "required": ["method", "evidence"],
+      "properties": {
+        "method": {"type": "string", "minLength": 1},
+        "evidence": {"type": "string", "minLength": 1}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

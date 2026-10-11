@@ -1,0 +1,74 @@
+{
+  "contract_type": "short-form-experiment",
+  "schema_version": "1.0.0",
+  "project_id": "synthetic-demo-001",
+  "created_at": "2026-07-28T17:00:00Z",
+  "production_context": {
+    "path": "contracts/production-context.json",
+    "sha256": "1111111111111111111111111111111111111111111111111111111111111111"
+  },
+  "status": "planned",
+  "hypothesis": "A contrarian diagnosis hook will improve three-second hold over an outcome-first hook for this problem-aware audience.",
+  "primary_metric": "hold_3s",
+  "guardrail_metrics": [
+    "completion_rate",
+    "save_rate"
+  ],
+  "baseline": {
+    "metric": "hold_3s",
+    "value": 0.62,
+    "unit": "ratio",
+    "window_start": "2026-06-01T00:00:00Z",
+    "window_end": "2026-07-01T00:00:00Z",
+    "sample_size": 12,
+    "source": "Instagram professional dashboard export for comparable educational reels."
+  },
+  "controlled_difference": {
+    "variable": "hook",
+    "kept_constant": [
+      "Body edit",
+      "Caption treatment",
+      "Thumbnail",
+      "Publication window"
+    ],
+    "rationale": "Change only the opening claim so a lift can be attributed to hook strategy."
+  },
+  "variants": [
+    {
+      "variant_id": "variant-contrarian",
+      "label": "Contrarian diagnosis",
+      "artifact": {
+        "path": "experiments/variant-contrarian.mp4",
+        "sha256": "9999999999999999999999999999999999999999999999999999999999999999"
+      },
+      "hook": "Your captions are not drifting because of the caption renderer.",
+      "packaging": "Neutral diagram cover with NOT THE RENDERER headline.",
+      "difference": "Contradicts the audience's assumed diagnosis.",
+      "result": null
+    },
+    {
+      "variant_id": "variant-outcome",
+      "label": "Outcome first",
+      "artifact": {
+        "path": "experiments/variant-outcome.mp4",
+        "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+      },
+      "hook": "This one timing rule keeps every caption and graphic in sync.",
+      "packaging": "Neutral diagram cover with ONE CLOCK headline.",
+      "difference": "Leads with the desired result and mechanism.",
+      "result": null
+    }
+  ],
+  "distribution_plan": {
+    "platform": "instagram_reels",
+    "audience_split": "Use platform-native A/B delivery to comparable randomized audiences.",
+    "publication_window": "Tuesday through Thursday, 12:00–15:00 local time.",
+    "minimum_observation_hours": 72
+  },
+  "decision_rule": {
+    "minimum_sample_per_variant": 1000,
+    "minimum_lift": 0.05,
+    "minimum_lift_unit": "relative",
+    "guardrail_behavior": "Do not adopt a hook that lifts hold while reducing completion or saves by more than 5% relative."
+  }
+}

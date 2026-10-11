@@ -1,0 +1,2 @@
+# Core only; optional alignment/model setup is separate in docs/installation.md.
+-r ../../../requirements-core.txt

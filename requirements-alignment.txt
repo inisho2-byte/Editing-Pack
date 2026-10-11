@@ -1,0 +1,3 @@
+# Optional heavy backend; downloads models only when explicitly invoked.
+# Not installed or executed in this release preparation. Requires its supported Python/Torch platform.
+whisperx==3.8.6

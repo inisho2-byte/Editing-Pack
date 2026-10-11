@@ -1,0 +1,2 @@
+# Optional MCP mailbox prototype; never starts a native application.
+mcp==1.26.0

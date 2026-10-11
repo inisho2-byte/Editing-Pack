@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://arete.local/editing-os/quality/evidence-envelope/v1",
+  "title": "ARETE Evidence Envelope v1",
+  "type": "object",
+  "required": [
+    "schema",
+    "evidence_id",
+    "evidence_type",
+    "stage",
+    "producer",
+    "producer_version",
+    "status",
+    "source_path",
+    "source_sha256",
+    "source_schema"
+  ],
+  "properties": {
+    "schema": {"const": "arete-evidence-envelope/v1"},
+    "evidence_id": {"type": "string", "minLength": 1},
+    "evidence_type": {
+      "enum": [
+        "editorial_intent",
+        "taste_selection",
+        "edl_approval",
+        "forced_alignment",
+        "caption_qa",
+        "graphics_qa",
+        "audio_plan",
+        "audio_qa",
+        "color_approval",
+        "render_log",
+        "short_form_experiment"
+      ]
+    },
+    "stage": {"enum": ["before-execution", "before-final-render"]},
+    "producer": {"type": "string", "minLength": 1},
+    "producer_version": {"type": "string", "minLength": 1},
+    "status": {"enum": ["pass", "fail"]},
+    "source_path": {"type": "string", "minLength": 1},
+    "source_sha256": {"$ref": "#/$defs/sha256"},
+    "source_schema": {"type": "string", "minLength": 1},
+    "artifact_sha256": {"$ref": "#/$defs/sha256"},
+    "timeline_sha256": {"$ref": "#/$defs/sha256"},
+    "payload": {},
+    "payload_sha256": {"$ref": "#/$defs/sha256"},
+    "taste_selection_sha256": {"$ref": "#/$defs/sha256"},
+    "selected_option_id": {"type": "string", "minLength": 1},
+    "treatment_sha256": {"$ref": "#/$defs/sha256"}
+  },
+  "allOf": [
+    {
+      "anyOf": [
+        {"required": ["artifact_sha256"]},
+        {"required": ["timeline_sha256"]}
+      ]
+    },
+    {
+      "anyOf": [
+        {"required": ["payload"]},
+        {"required": ["payload_sha256"]}
+      ]
+    },
+    {
+      "if": {
+        "properties": {
+          "evidence_type": {
+            "enum": ["caption_qa", "graphics_qa", "color_approval", "audio_qa"]
+          }
+        },
+        "required": ["evidence_type"]
+      },
+      "then": {
+        "required": [
+          "taste_selection_sha256",
+          "selected_option_id",
+          "treatment_sha256"
+        ]
+      }
+    }
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "sha256": {
+      "type": "string",
+      "pattern": "^[a-fA-F0-9]{64}$"
+    }
+  }
+}

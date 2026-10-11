@@ -1,0 +1,14 @@
+# Quality Engine
+
+Inspects encoded exports against specs, evidence, regression/waiver requirements and artifact-bound human review. Automated pass is distinct from ready=true. Replacing export bytes invalidates matching review. Quality-spec and human-review examples are pending synthetic templates, not completed evidence.
+
+## Setup and use
+
+Start with [installation](../../../../docs/installation.md), [configuration](../../../../docs/configuration.md) and [workflow](../../../../docs/workflow.md). Run commands from the toolkit root using the isolated core interpreter. Keep job outputs in the selected external workspace.
+
+```powershell
+$ToolkitPython = '../editing-pack-env/Scripts/python.exe'
+& $ToolkitPython -B 'Editing_OS/Video Editing/Engines/Quality_engine/qa.py' --help
+```
+
+See [capabilities](../../../../docs/capabilities.md) for tested limits. All example source locators, timestamps and approvals are synthetic; no example authorizes a real job. Documentation is CC BY 4.0; code/snippets and JSON operational material are MIT under [license scope](../../../../LICENSE-SCOPE.md).

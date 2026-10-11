@@ -1,0 +1,122 @@
+{
+  "contract_type": "taste-selection",
+  "schema_version": "1.0.0",
+  "project_id": "synthetic-demo-001",
+  "created_at": "2026-07-28T15:20:00Z",
+  "production_context": {
+    "path": "contracts/production-context.json",
+    "sha256": "1111111111111111111111111111111111111111111111111111111111111111"
+  },
+  "taste_profile_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+  "options": [
+    {
+      "option_id": "option-calm-tech",
+      "name": "Calm Technical Precision",
+      "status": "selected",
+      "content_fit": "Matches a technical education reel without looking like a software template.",
+      "risk": "Could feel clinical if the presenter close-ups are removed.",
+      "preview": {
+        "path": "previews/calm-tech.mp4",
+        "sha256": "2222222222222222222222222222222222222222222222222222222222222222"
+      },
+      "treatment_tokens": {
+        "palette": {
+          "background": "#17191D",
+          "surface": "#24272D",
+          "foreground": "#F4F1E8",
+          "muted": "#A9ADB5",
+          "accents": [
+            "#3B82F6"
+          ]
+        },
+        "typography": {
+          "display_family": "Arial",
+          "body_family": "Arial",
+          "case_policy": "upper_emphasis_only",
+          "weight_strategy": "Use 700 for the one decisive phrase and 500 elsewhere."
+        },
+        "motion": {
+          "style": "Short purposeful reveals with no idle floating.",
+          "default_easing": "power2.out",
+          "minimum_duration_ms": 180,
+          "maximum_duration_ms": 420
+        },
+        "captions": {
+          "profile": "instagram_reels_semantic",
+          "phrase_strategy": "Two-line semantic clauses.",
+          "emphasis": "One active phrase at a time in the accent color.",
+          "max_chars_per_line": 26,
+          "max_words_per_caption": 8,
+          "max_lines": 2,
+          "minimum_exposure_ms": 750,
+          "maximum_caption_duration_ms": 3200,
+          "reading_behavior": "auto",
+          "font_size_short_edge_px": 54,
+          "primary_color": "#F4F1E8",
+          "accent_color": "#3B82F6",
+          "outline_color": "#101112",
+          "outline_px": 3,
+          "shadow_px": 1,
+          "emphasis_scale_percent": 112,
+          "entry_ms": 120,
+          "exit_ms": 90,
+          "motion": "clean-settle"
+        },
+        "color_grade": {
+          "correction_required": true,
+          "look_description": "Neutral skin tone with slightly reduced saturation.",
+          "render_strategy": "ffmpeg_filter",
+          "filtergraph": "eq=contrast=1.03:saturation=0.92",
+          "lut_reference": null
+        },
+        "audio": {
+          "dialogue": "Dry, close, and dominant.",
+          "music": "Restrained low pulse.",
+          "sound_effects": "Sparse motivated ticks and one soft impact.",
+          "silence": "Use only for authored pre-roll and final hold."
+        }
+      }
+    },
+    {
+      "option_id": "option-editorial-warm",
+      "name": "Warm Editorial",
+      "status": "rejected",
+      "content_fit": "Adds personality while remaining clean and credible.",
+      "risk": "The editorial metaphor may compete with the software-timing subject.",
+      "preview": {
+        "path": "previews/editorial-warm.mp4",
+        "sha256": "3333333333333333333333333333333333333333333333333333333333333333"
+      },
+      "treatment_artifact": {
+        "path": "treatments/editorial-warm.json",
+        "sha256": "3434343434343434343434343434343434343434343434343434343434343434"
+      }
+    }
+  ],
+  "selection": {
+    "selected_option_id": "option-calm-tech",
+    "selected_by": "Demo Reviewer",
+    "selected_at": "2026-07-28T15:22:00Z",
+    "reason": "It makes the timing diagram feel premium without adding a branded-template look.",
+    "explicit_human_choice": true
+  },
+  "reject_reflex_review": {
+    "oversaturated_color": {
+      "passes": true,
+      "evidence": "Preview scopes and visual review show one restrained accent."
+    },
+    "cheesy_transitions_or_fx": {
+      "passes": true,
+      "evidence": "Every transition communicates a clock-state change."
+    },
+    "cluttered_frames": {
+      "passes": true,
+      "evidence": "No frame contains more than one diagram plus captions."
+    },
+    "generic_or_templated": {
+      "passes": true,
+      "evidence": "The visual system is derived from the one-clock concept."
+    },
+    "notes": "Keep presenter close-ups to prevent the technical treatment from becoming sterile."
+  }
+}

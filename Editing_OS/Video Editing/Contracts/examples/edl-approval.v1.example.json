@@ -1,0 +1,50 @@
+{
+  "contract_type": "edl-approval",
+  "schema_version": "1.0.0",
+  "project_id": "synthetic-demo-001",
+  "created_at": "2026-07-28T16:00:00Z",
+  "production_context": {
+    "path": "contracts/production-context.json",
+    "sha256": "1111111111111111111111111111111111111111111111111111111111111111"
+  },
+  "edl": {
+    "path": "edit/approved-edl.json",
+    "sha256": "4444444444444444444444444444444444444444444444444444444444444444"
+  },
+  "preview": {
+    "path": "previews/approved-edl-preview.mp4",
+    "sha256": "5555555555555555555555555555555555555555555555555555555555555555"
+  },
+  "timeline_map": {
+    "path": "edit/timeline_map.json",
+    "sha256": "6666666666666666666666666666666666666666666666666666666666666666"
+  },
+  "retimed_words": {
+    "path": "edit/retimed_words.json",
+    "sha256": "7777777777777777777777777777777777777777777777777777777777777777"
+  },
+  "reviewer": {
+    "reviewer_id": "synthetic-reviewer",
+    "name": "Demo Reviewer",
+    "kind": "human"
+  },
+  "status": "approved",
+  "resolved_decisions": [
+    {
+      "decision_id": "decision-pause-01",
+      "description": "The 420 ms pause before the payoff may feel slow.",
+      "disposition": "accepted",
+      "resolution": "Keep it because the diagram needs a clean cognitive reset.",
+      "resolved_by": "Demo Reviewer",
+      "resolved_at": "2026-07-28T15:58:00Z"
+    }
+  ],
+  "unresolved_decision_ids": [],
+  "approval": {
+    "reviewed_at": "2026-07-28T16:00:00Z",
+    "approved_edl_sha256": "4444444444444444444444444444444444444444444444444444444444444444",
+    "timeline_fingerprint": "9999999999999999999999999999999999999999999999999999999999999999",
+    "selected_taste_selection_sha256": "8888888888888888888888888888888888888888888888888888888888888888",
+    "notes": "Approved for specialist caption and graphics generation."
+  }
+}

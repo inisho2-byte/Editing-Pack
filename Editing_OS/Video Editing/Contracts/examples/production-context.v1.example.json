@@ -1,0 +1,111 @@
+{
+  "contract_type": "production-context",
+  "schema_version": "1.0.0",
+  "project_id": "synthetic-demo-001",
+  "created_at": "2026-07-28T15:00:00Z",
+  "governing_documents": [
+    {
+      "role": "master_prompt",
+      "path": "Skills/MASTER_PROMPT.md",
+      "sha256": "0f62e0c8fe668ade6502f2cc4eedc2cc622f82c9d3dd42d84d6b1b9946b8e164"
+    },
+    {
+      "role": "taste_profile",
+      "path": "Skills/TASTE_PROFILE.md",
+      "sha256": "c1e0d654dfd694f9f20cbf279491748a761becdc46bab36667316abcfb09c1dc"
+    },
+    {
+      "role": "tool_routing",
+      "path": "Skills/TOOL_ROUTING.md",
+      "sha256": "36dcd8a41d2e7173b6f8e26cd2afa518149f5399d02754919a79ea868ae32474"
+    },
+    {
+      "role": "quality_standard",
+      "path": "Skills/QUALITY_STANDARD.md",
+      "sha256": "9d0db6c34b856bd281521223a283d60e5c4bd06f9f40ef7bfa8a7098b38be024"
+    },
+    {
+      "role": "editing_handbook",
+      "path": "Skills/Video editing handbook/Elite_AI_Video_Editing_Workflow.md",
+      "sha256": "ea0aa5f5511678fe04dd5dc2643b63f90994bd57450a3c6f70752152b0623949"
+    }
+  ],
+  "operating_mode": "standard",
+  "artifact_type": "video_edit",
+  "content_archetype": "educational_explainer",
+  "deliverable": {
+    "platform": "instagram_reels",
+    "aspect_ratio": "9:16",
+    "width_px": 1080,
+    "height_px": 1920,
+    "fps": 30,
+    "target_duration_seconds": 35,
+    "language": "en-US",
+    "deadline": null
+  },
+  "objective": {
+    "primary_goal": "Explain why timing provenance matters in AI video editing.",
+    "performance_objective": "save",
+    "success_definition": "Viewers understand the one-clock rule and save the reel as a workflow reference."
+  },
+  "audience": {
+    "description": "AI creators who can generate assets but struggle to assemble coherent edits.",
+    "awareness_level": "problem_aware",
+    "entering_state": "They think caption drift is an isolated subtitle problem.",
+    "desired_transformation": "They understand that one post-cut clock must govern captions, graphics, and review.",
+    "desired_action": "Save the workflow and apply the timing contract on their next edit."
+  },
+  "sources": [
+    {
+      "source_id": "talking-head-01",
+      "type": "video",
+      "locator": "sources/talking-head-01.mp4",
+      "accessible": true,
+      "usage_rights": "owned",
+      "notes": "Primary presenter take."
+    },
+    {
+      "source_id": "timeline-diagram-01",
+      "type": "image",
+      "locator": "sources/timeline-diagram-01.png",
+      "accessible": true,
+      "usage_rights": "owned",
+      "notes": "One-clock diagram."
+    }
+  ],
+  "accessibility": {
+    "captions_required": true,
+    "caption_delivery": "burned_in",
+    "audio_description_required": false,
+    "safe_zone_profile": "instagram-reels-2026-07",
+    "other_needs": [
+      "Do not communicate state by color alone."
+    ]
+  },
+  "required_evidence": [
+    {
+      "evidence_id": "editorial-intent-main",
+      "evidence_type": "editorial_intent",
+      "stage": "before-execution",
+      "schema_id": "https://arete.local/editing-os/contracts/editorial-intent/v1",
+      "expected_path": "contracts/editorial-intent.json",
+      "required": true
+    },
+    {
+      "evidence_id": "edl-approval-main",
+      "evidence_type": "edl_approval",
+      "stage": "before-final-render",
+      "schema_id": "https://arete.local/editing-os/contracts/edl-approval/v1",
+      "expected_path": "contracts/edl-approval.json",
+      "required": true
+    },
+    {
+      "evidence_id": "quality-report-main",
+      "evidence_type": "quality_report",
+      "stage": "before-final-render",
+      "schema_id": "quality-report/v2",
+      "expected_path": "quality/quality-report.json",
+      "required": true
+    }
+  ]
+}

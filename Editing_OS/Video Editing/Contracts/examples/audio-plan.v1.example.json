@@ -1,0 +1,127 @@
+{
+  "contract_type": "audio-plan",
+  "schema_version": "1.0.0",
+  "project_id": "synthetic-demo-001",
+  "created_at": "2026-07-28T15:30:00Z",
+  "production_context": {
+    "path": "contracts/production-context.json",
+    "sha256": "1111111111111111111111111111111111111111111111111111111111111111"
+  },
+  "editorial_intent": {
+    "path": "contracts/editorial-intent.json",
+    "sha256": "1313131313131313131313131313131313131313131313131313131313131313"
+  },
+  "source_assessment": [
+    {
+      "source_id": "talking-head-01",
+      "track_id": "dialogue-track-01",
+      "kind": "dialogue",
+      "sample_rate_hz": 48000,
+      "channels": 2,
+      "issues": [
+        "noise",
+        "low_level"
+      ]
+    }
+  ],
+  "restoration": {
+    "denoise": {
+      "needed": true,
+      "rationale": "A steady HVAC bed is audible between phrases.",
+      "maximum_reduction_db": 8
+    },
+    "de_reverb": {
+      "needed": false,
+      "rationale": "Room decay is short and does not reduce intelligibility.",
+      "maximum_reduction_db": null
+    },
+    "de_click": {
+      "needed": false,
+      "rationale": "No mouth clicks or digital clicks were detected during source review.",
+      "maximum_reduction_db": null
+    }
+  },
+  "diarization": {
+    "required": false,
+    "rationale": "The source contains one continuous identified speaker.",
+    "speakers": [
+      {
+        "speaker_id": "synthetic-speaker",
+        "label": "Demo Reviewer",
+        "source_evidence": "Visible on-camera speaker throughout the primary source."
+      }
+    ]
+  },
+  "scene_audio_roles": [
+    {
+      "scene_id": "scene-hook",
+      "primary": "dialogue",
+      "dialogue": "Close, dry, and forward.",
+      "ambience": "Cleaned room tone maintains continuity.",
+      "music": "Low pulse enters after the first clause.",
+      "sound_effects": "One restrained impact marks the contradiction.",
+      "silence": "A short clean pre-roll gives the first word room."
+    },
+    {
+      "scene_id": "scene-proof",
+      "primary": "dialogue",
+      "dialogue": "Narration remains dominant over the diagram.",
+      "ambience": "Room tone continues beneath graphic cutaways.",
+      "music": "Pulse remains narrow and ducks under speech.",
+      "sound_effects": "Soft ticks mark only the compared cue points.",
+      "silence": "No full dropout; breath gaps remain natural."
+    },
+    {
+      "scene_id": "scene-payoff",
+      "primary": "dialogue",
+      "dialogue": "The rule lands slowly and clearly.",
+      "ambience": "Room tone fades after the final word.",
+      "music": "Resolve to a stable chord.",
+      "sound_effects": "Subtle clicks support branch reveals.",
+      "silence": "Hold 300 ms after the final line."
+    }
+  ],
+  "masking_intelligibility_checks": [
+    {
+      "scene_id": "scene-hook",
+      "spoken_content_present": true,
+      "masking_risk": "low",
+      "check_method": "Audition on studio monitors, laptop speakers, and mono phone playback.",
+      "mitigation": "Duck music 5 dB under dialogue and remove competing upper-mid percussion.",
+      "passes": true
+    },
+    {
+      "scene_id": "scene-proof",
+      "spoken_content_present": true,
+      "masking_risk": "medium",
+      "check_method": "Check dialogue short-term loudness and listen at low monitoring level.",
+      "mitigation": "Automate ticks away from syllable onsets and sidechain the music pulse.",
+      "passes": true
+    },
+    {
+      "scene_id": "scene-payoff",
+      "spoken_content_present": true,
+      "masking_risk": "low",
+      "check_method": "Listen to the encoded preview in mono at low volume.",
+      "mitigation": "Keep the resolving chord below the final phrase and delay its peak.",
+      "passes": true
+    }
+  ],
+  "sync_evidence": {
+    "method": "Compare visible plosive onsets and waveform transients in the encoded preview.",
+    "reference_artifact": {
+      "path": "previews/audio-sync-preview.mp4",
+      "sha256": "1414141414141414141414141414141414141414141414141414141414141414"
+    },
+    "maximum_offset_ms": 45,
+    "measured_offset_ms": 12,
+    "passes": true
+  },
+  "delivery_targets": {
+    "integrated_loudness_lufs": -14,
+    "true_peak_dbtp": -1,
+    "loudness_range_lu": 8,
+    "dialogue_priority": true,
+    "target_rationale": "Platform-oriented short form with clear speech and enough range for the payoff."
+  }
+}

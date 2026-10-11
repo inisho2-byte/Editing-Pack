@@ -1,0 +1,249 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://arete.local/editing-os/quality/spec/v2",
+  "title": "ARETE Video Quality Spec v2",
+  "type": "object",
+  "required": [
+    "schema",
+    "production_context",
+    "features",
+    "delivery",
+    "audio",
+    "determinism",
+    "thresholds",
+    "intentional_intervals",
+    "intentional_endpoints",
+    "review_times",
+    "evidence"
+  ],
+  "properties": {
+    "schema": {"const": "arete-video-quality-spec/v2"},
+    "production_context": {
+      "type": "object",
+      "required": ["path", "sha256"],
+      "properties": {
+        "path": {"type": "string", "minLength": 1},
+        "sha256": {"$ref": "#/$defs/sha256"}
+      },
+      "additionalProperties": false
+    },
+    "features": {
+      "type": "object",
+      "required": [
+        "timeline_edited",
+        "captions",
+        "graphics",
+        "audio_design",
+        "color_grade",
+        "browser_rendered",
+        "short_form_experiment"
+      ],
+      "properties": {
+        "timeline_edited": {"type": "boolean"},
+        "captions": {"type": "boolean"},
+        "graphics": {"type": "boolean"},
+        "audio_design": {"type": "boolean"},
+        "color_grade": {"type": "boolean"},
+        "browser_rendered": {"type": "boolean"},
+        "short_form_experiment": {"type": "boolean"}
+      },
+      "additionalProperties": false
+    },
+    "delivery": {
+      "type": "object",
+      "required": [
+        "width",
+        "height",
+        "aspect_ratio",
+        "fps",
+        "fps_tolerance",
+        "variable_frame_rate_allowed",
+        "duration_s",
+        "duration_tolerance_s",
+        "video_codec",
+        "pixel_format",
+        "alpha_allowed",
+        "rotation_metadata_allowed",
+        "audio_required"
+      ],
+      "properties": {
+        "width": {"type": "integer", "minimum": 1},
+        "height": {"type": "integer", "minimum": 1},
+        "aspect_ratio": {"type": "string", "pattern": "^[1-9][0-9]*:[1-9][0-9]*$"},
+        "fps": {"type": "number", "exclusiveMinimum": 0, "maximum": 240},
+        "fps_tolerance": {"type": "number", "minimum": 0},
+        "variable_frame_rate_allowed": {"type": "boolean"},
+        "duration_s": {"type": "number", "exclusiveMinimum": 0},
+        "duration_tolerance_s": {"type": "number", "minimum": 0},
+        "video_codec": {"type": "string", "minLength": 1},
+        "pixel_format": {"type": "string", "minLength": 1},
+        "alpha_allowed": {"type": "boolean"},
+        "rotation_metadata_allowed": {"type": "boolean"},
+        "audio_required": {"type": "boolean"},
+        "audio_codec": {"type": "string", "minLength": 1},
+        "audio_sample_rate": {"type": "integer", "minimum": 1},
+        "audio_channels": {"type": "integer", "minimum": 1}
+      },
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {"audio_required": {"const": true}},
+            "required": ["audio_required"]
+          },
+          "then": {
+            "required": ["audio_codec", "audio_sample_rate", "audio_channels"]
+          }
+        }
+      ]
+    },
+    "audio": {
+      "type": "object",
+      "properties": {
+        "target_lufs": {"type": "number"},
+        "lufs_tolerance": {"type": "number", "minimum": 0},
+        "maximum_true_peak_dbtp": {"type": "number"},
+        "maximum_loudness_range_lu": {"type": "number", "minimum": 0}
+      },
+      "additionalProperties": false
+    },
+    "determinism": {
+      "type": "object",
+      "required": ["determinism_required", "waiver"],
+      "properties": {
+        "determinism_required": {"type": "boolean"},
+        "waiver": {
+          "oneOf": [
+            {"type": "null"},
+            {
+              "type": "object",
+              "required": [
+                "schema",
+                "waiver_id",
+                "approved_by",
+                "approved_at",
+                "reason",
+                "scope",
+                "risk_acceptance",
+                "alternative_verification"
+              ]
+            }
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {"determinism_required": {"const": true}},
+            "required": ["determinism_required"]
+          },
+          "then": {"properties": {"waiver": {"type": "null"}}},
+          "else": {"properties": {"waiver": {"type": "object"}}}
+        }
+      ],
+      "additionalProperties": false
+    },
+    "thresholds": {
+      "type": "object",
+      "required": [
+        "max_unacknowledged_black_s",
+        "max_unacknowledged_freeze_s",
+        "max_unacknowledged_silence_s",
+        "maximum_uninspected_span_s",
+        "scene_detection_threshold"
+      ],
+      "properties": {
+        "max_unacknowledged_black_s": {"type": "number", "minimum": 0},
+        "max_unacknowledged_freeze_s": {"type": "number", "minimum": 0},
+        "max_unacknowledged_silence_s": {"type": "number", "minimum": 0},
+        "maximum_uninspected_span_s": {"type": "number", "exclusiveMinimum": 0},
+        "scene_detection_threshold": {"type": "number", "minimum": 0, "maximum": 1}
+      },
+      "additionalProperties": false
+    },
+    "intentional_intervals": {
+      "type": "object",
+      "required": ["black", "freeze", "silence"],
+      "properties": {
+        "black": {"$ref": "#/$defs/intervals"},
+        "freeze": {"$ref": "#/$defs/intervals"},
+        "silence": {"$ref": "#/$defs/intervals"}
+      },
+      "additionalProperties": false
+    },
+    "intentional_endpoints": {
+      "type": "object",
+      "required": ["first", "last"],
+      "properties": {
+        "first": {"type": "boolean"},
+        "last": {"type": "boolean"}
+      },
+      "additionalProperties": false
+    },
+    "review_times": {
+      "type": "object",
+      "required": [
+        "caption_activation",
+        "graphic_anchor",
+        "animation_phase",
+        "transition",
+        "maximum_density"
+      ],
+      "properties": {
+        "caption_activation": {"$ref": "#/$defs/times"},
+        "graphic_anchor": {"$ref": "#/$defs/times"},
+        "animation_phase": {"$ref": "#/$defs/times"},
+        "transition": {"$ref": "#/$defs/times"},
+        "maximum_density": {"$ref": "#/$defs/times"}
+      },
+      "additionalProperties": false
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "evidence_type",
+          "stage",
+          "schema",
+          "path",
+          "sha256",
+          "required"
+        ],
+        "properties": {
+          "id": {"type": "string", "minLength": 1},
+          "evidence_type": {"type": "string", "minLength": 1},
+          "stage": {"enum": ["before-execution", "before-final-render"]},
+          "schema": {"const": "arete-evidence-envelope/v1"},
+          "path": {"type": "string", "minLength": 1},
+          "sha256": {"$ref": "#/$defs/sha256"},
+          "required": {"const": true}
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^[a-fA-F0-9]{64}$"},
+    "times": {
+      "type": "array",
+      "items": {"type": "number", "minimum": 0},
+      "uniqueItems": true
+    },
+    "intervals": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["start", "end"],
+        "properties": {
+          "start": {"type": "number", "minimum": 0},
+          "end": {"type": "number", "exclusiveMinimum": 0},
+          "reason": {"type": "string"}
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}

@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security or private-data exposure
+    url: https://github.com/inisho2-byte/Editing-Pack/security/advisories/new
+    about: Report privately; never post credentials or personal project material in an issue.

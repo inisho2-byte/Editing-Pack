@@ -1,0 +1,498 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://arete.local/editing-os/contracts/post-publish-learning/v1",
+  "title": "Editing OS Post-publish Learning v1",
+  "type": "object",
+  "required": [
+    "contract_type",
+    "schema_version",
+    "project_id",
+    "created_at",
+    "production_context",
+    "experiment",
+    "publication",
+    "observation_window",
+    "baseline_metrics",
+    "observed_metrics",
+    "variant_outcomes",
+    "insights",
+    "next_actions",
+    "taste_update"
+  ],
+  "properties": {
+    "contract_type": {
+      "const": "post-publish-learning"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "project_id": {
+      "$ref": "#/$defs/identifier"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "production_context": {
+      "$ref": "#/$defs/artifactReference"
+    },
+    "experiment": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "$ref": "#/$defs/artifactReference"
+        }
+      ]
+    },
+    "publication": {
+      "type": "object",
+      "required": [
+        "platform",
+        "published_at",
+        "url",
+        "artifact_sha256"
+      ],
+      "properties": {
+        "platform": {
+          "type": "string",
+          "minLength": 1
+        },
+        "published_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "artifact_sha256": {
+          "$ref": "#/$defs/sha256"
+        }
+      },
+      "additionalProperties": false
+    },
+    "observation_window": {
+      "type": "object",
+      "required": [
+        "start",
+        "end",
+        "qualified_views"
+      ],
+      "properties": {
+        "start": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "end": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "qualified_views": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "additionalProperties": false
+    },
+    "baseline_metrics": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/metric"
+      }
+    },
+    "observed_metrics": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/metric"
+      }
+    },
+    "variant_outcomes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "variant_id",
+          "artifact_sha256",
+          "sample_size",
+          "metrics",
+          "outcome"
+        ],
+        "properties": {
+          "variant_id": {
+            "$ref": "#/$defs/identifier"
+          },
+          "artifact_sha256": {
+            "$ref": "#/$defs/sha256"
+          },
+          "sample_size": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "metrics": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/metric"
+            }
+          },
+          "outcome": {
+            "enum": [
+              "winner",
+              "loser",
+              "inconclusive",
+              "single_release"
+            ]
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "insights": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "claim",
+          "status",
+          "evidence",
+          "scope"
+        ],
+        "properties": {
+          "claim": {
+            "type": "string",
+            "minLength": 1
+          },
+          "status": {
+            "enum": [
+              "supported",
+              "rejected",
+              "inconclusive"
+            ]
+          },
+          "evidence": {
+            "type": "string",
+            "minLength": 1
+          },
+          "scope": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "next_actions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "taste_update": {
+      "$ref": "#/$defs/tasteUpdate"
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "identifier": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{2,127}$"
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "artifactReference": {
+      "type": "object",
+      "required": [
+        "path",
+        "sha256"
+      ],
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sha256": {
+          "$ref": "#/$defs/sha256"
+        }
+      },
+      "additionalProperties": false
+    },
+    "metricName": {
+      "enum": [
+        "hold_1s",
+        "hold_3s",
+        "average_watch_time_seconds",
+        "average_percentage_viewed",
+        "quartile_25_rate",
+        "quartile_50_rate",
+        "quartile_75_rate",
+        "completion_rate",
+        "replay_rate",
+        "share_rate",
+        "save_rate",
+        "comment_rate",
+        "click_through_rate",
+        "conversion_rate",
+        "custom"
+      ]
+    },
+    "metric": {
+      "type": "object",
+      "required": [
+        "metric",
+        "value",
+        "unit",
+        "source"
+      ],
+      "properties": {
+        "metric": {
+          "$ref": "#/$defs/metricName"
+        },
+        "value": {
+          "type": "number",
+          "minimum": 0
+        },
+        "unit": {
+          "enum": [
+            "ratio",
+            "seconds",
+            "count",
+            "currency",
+            "custom"
+          ]
+        },
+        "source": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "unit": {
+                "const": "ratio"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "value": {
+                "maximum": 1
+              }
+            }
+          }
+        }
+      ]
+    },
+    "tasteUpdate": {
+      "type": "object",
+      "required": [
+        "proposed",
+        "rationale",
+        "suggested_changes",
+        "explicit_consent",
+        "applied",
+        "profile_before_sha256",
+        "profile_after_sha256"
+      ],
+      "properties": {
+        "proposed": {
+          "type": "boolean"
+        },
+        "rationale": {
+          "type": "string"
+        },
+        "suggested_changes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "explicit_consent": {
+          "type": "object",
+          "required": [
+            "status",
+            "granted_by",
+            "granted_at"
+          ],
+          "properties": {
+            "status": {
+              "enum": [
+                "not_requested",
+                "granted",
+                "denied"
+              ]
+            },
+            "granted_by": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "granted_at": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "format": "date-time"
+            }
+          },
+          "additionalProperties": false,
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "status": {
+                    "const": "granted"
+                  }
+                },
+                "required": [
+                  "status"
+                ]
+              },
+              "then": {
+                "properties": {
+                  "granted_by": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "granted_at": {
+                    "type": "string",
+                    "format": "date-time"
+                  }
+                }
+              },
+              "else": {
+                "properties": {
+                  "granted_by": {
+                    "type": "null"
+                  },
+                  "granted_at": {
+                    "type": "null"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "applied": {
+          "type": "boolean"
+        },
+        "profile_before_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "profile_after_sha256": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "#/$defs/sha256"
+            }
+          ]
+        }
+      },
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "proposed": {
+                "const": false
+              }
+            },
+            "required": [
+              "proposed"
+            ]
+          },
+          "then": {
+            "properties": {
+              "rationale": {
+                "maxLength": 0
+              },
+              "suggested_changes": {
+                "maxItems": 0
+              },
+              "explicit_consent": {
+                "properties": {
+                  "status": {
+                    "const": "not_requested"
+                  },
+                  "granted_by": {
+                    "type": "null"
+                  },
+                  "granted_at": {
+                    "type": "null"
+                  }
+                }
+              },
+              "applied": {
+                "const": false
+              },
+              "profile_after_sha256": {
+                "type": "null"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "applied": {
+                "const": true
+              }
+            },
+            "required": [
+              "applied"
+            ]
+          },
+          "then": {
+            "properties": {
+              "proposed": {
+                "const": true
+              },
+              "rationale": {
+                "minLength": 1
+              },
+              "suggested_changes": {
+                "minItems": 1
+              },
+              "explicit_consent": {
+                "properties": {
+                  "status": {
+                    "const": "granted"
+                  },
+                  "granted_by": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "granted_at": {
+                    "type": "string",
+                    "format": "date-time"
+                  }
+                }
+              },
+              "profile_after_sha256": {
+                "$ref": "#/$defs/sha256"
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

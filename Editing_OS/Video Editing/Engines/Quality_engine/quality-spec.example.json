@@ -1,0 +1,78 @@
+{
+  "schema": "arete-video-quality-spec/v2",
+  "production_context": {
+    "path": "C:/ABSOLUTE/PATH/production-context.json",
+    "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "features": {
+    "timeline_edited": false,
+    "captions": false,
+    "graphics": false,
+    "audio_design": false,
+    "color_grade": false,
+    "browser_rendered": false,
+    "short_form_experiment": false
+  },
+  "delivery": {
+    "width": 1080,
+    "height": 1920,
+    "aspect_ratio": "9:16",
+    "fps": 30,
+    "fps_tolerance": 0.01,
+    "variable_frame_rate_allowed": false,
+    "duration_s": 30.0,
+    "duration_tolerance_s": 0.12,
+    "video_codec": "h264",
+    "pixel_format": "yuv420p",
+    "alpha_allowed": false,
+    "rotation_metadata_allowed": false,
+    "audio_required": true,
+    "audio_codec": "aac",
+    "audio_sample_rate": 48000,
+    "audio_channels": 2
+  },
+  "audio": {
+    "target_lufs": -14,
+    "lufs_tolerance": 1.5,
+    "maximum_true_peak_dbtp": -1,
+    "maximum_loudness_range_lu": 11
+  },
+  "determinism": {
+    "determinism_required": true,
+    "waiver": null
+  },
+  "thresholds": {
+    "max_unacknowledged_black_s": 0.12,
+    "max_unacknowledged_freeze_s": 0.55,
+    "max_unacknowledged_silence_s": 1.5,
+    "maximum_uninspected_span_s": 5,
+    "scene_detection_threshold": 0.22
+  },
+  "intentional_intervals": {
+    "black": [],
+    "freeze": [],
+    "silence": []
+  },
+  "intentional_endpoints": {
+    "first": false,
+    "last": false
+  },
+  "review_times": {
+    "caption_activation": [],
+    "graphic_anchor": [],
+    "animation_phase": [],
+    "transition": [],
+    "maximum_density": []
+  },
+  "evidence": [
+    {
+      "id": "editorial-intent",
+      "evidence_type": "editorial_intent",
+      "stage": "before-execution",
+      "schema": "arete-evidence-envelope/v1",
+      "path": "C:/ABSOLUTE/PATH/evidence/editorial-intent.envelope.json",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "required": true
+    }
+  ]
+}

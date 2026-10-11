@@ -1,0 +1,192 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://arete.local/editing-os/quality/human-review/v2",
+  "title": "ARETE Human Video Review v2",
+  "type": "object",
+  "required": [
+    "schema",
+    "artifact_sha256",
+    "reviewer",
+    "reviewed_at",
+    "complete_playback",
+    "content_accuracy",
+    "checks",
+    "review_points",
+    "scene_contracts",
+    "universal_criteria",
+    "creative_scores",
+    "accepted_minor_issue_codes",
+    "notes"
+  ],
+  "properties": {
+    "schema": {"const": "arete-human-video-review/v2"},
+    "artifact_sha256": {"$ref": "#/$defs/sha256"},
+    "reviewer": {"type": "string", "minLength": 1},
+    "reviewed_at": {"type": "string", "format": "date-time"},
+    "complete_playback": {
+      "type": "object",
+      "required": [
+        "watched_from_start_to_finish",
+        "normal_speed",
+        "audio_enabled",
+        "target_device"
+      ],
+      "properties": {
+        "watched_from_start_to_finish": {"type": "boolean"},
+        "normal_speed": {"type": "boolean"},
+        "audio_enabled": {"type": "boolean"},
+        "target_device": {"type": "string", "minLength": 1}
+      },
+      "additionalProperties": false
+    },
+    "content_accuracy": {
+      "type": "object",
+      "required": [
+        "verified",
+        "required_source_ids",
+        "sources_checked",
+        "unsupported_or_unverified"
+      ],
+      "properties": {
+        "verified": {"type": "boolean"},
+        "required_source_ids": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 1},
+          "uniqueItems": true
+        },
+        "sources_checked": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 1},
+          "uniqueItems": true
+        },
+        "unsupported_or_unverified": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 1}
+        }
+      },
+      "additionalProperties": false
+    },
+    "checks": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/disposition"}
+    },
+    "review_points": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "allOf": [
+          {"$ref": "#/$defs/disposition"},
+          {
+            "type": "object",
+            "required": ["at_s", "reasons"],
+            "properties": {
+              "at_s": {"type": "number", "minimum": 0},
+              "reasons": {
+                "type": "array",
+                "minItems": 1,
+                "items": {"type": "string", "minLength": 1},
+                "uniqueItems": true
+              }
+            }
+          }
+        ]
+      }
+    },
+    "scene_contracts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "scene_id",
+          "entering_state",
+          "promised_change",
+          "delivered_change",
+          "proof",
+          "exit_state",
+          "failure_condition",
+          "status",
+          "notes"
+        ],
+        "properties": {
+          "scene_id": {"type": "string", "minLength": 1},
+          "entering_state": {"type": "string", "minLength": 1},
+          "promised_change": {"type": "string", "minLength": 1},
+          "delivered_change": {"type": "string", "minLength": 1},
+          "proof": {"type": "string", "minLength": 1},
+          "exit_state": {"type": "string", "minLength": 1},
+          "failure_condition": {"type": "string", "minLength": 1},
+          "status": {"const": "pass"},
+          "notes": {"type": "string"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "universal_criteria": {
+      "type": "object",
+      "required": ["clarity", "story", "emotion", "retention", "memorability"],
+      "properties": {
+        "clarity": {"$ref": "#/$defs/criterion"},
+        "story": {"$ref": "#/$defs/criterion"},
+        "emotion": {"$ref": "#/$defs/criterion"},
+        "retention": {"$ref": "#/$defs/criterion"},
+        "memorability": {"$ref": "#/$defs/criterion"}
+      },
+      "additionalProperties": false
+    },
+    "creative_scores": {
+      "type": "object",
+      "required": [
+        "story_and_clarity",
+        "visual_hierarchy_and_layout",
+        "typography",
+        "motion_and_choreography",
+        "timing_and_pacing",
+        "visual_consistency",
+        "audio_design",
+        "captions_and_accessibility"
+      ],
+      "properties": {
+        "story_and_clarity": {"$ref": "#/$defs/score"},
+        "visual_hierarchy_and_layout": {"$ref": "#/$defs/score"},
+        "typography": {"$ref": "#/$defs/score"},
+        "motion_and_choreography": {"$ref": "#/$defs/score"},
+        "timing_and_pacing": {"$ref": "#/$defs/score"},
+        "visual_consistency": {"$ref": "#/$defs/score"},
+        "audio_design": {"$ref": "#/$defs/score"},
+        "captions_and_accessibility": {"$ref": "#/$defs/score"}
+      },
+      "additionalProperties": false
+    },
+    "accepted_minor_issue_codes": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1},
+      "uniqueItems": true
+    },
+    "notes": {"type": "string"}
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^[a-fA-F0-9]{64}$"},
+    "score": {"type": "number", "minimum": 0, "maximum": 5},
+    "criterion": {
+      "type": "object",
+      "required": ["score", "notes"],
+      "properties": {
+        "score": {"$ref": "#/$defs/score"},
+        "notes": {"type": "string", "minLength": 1}
+      },
+      "additionalProperties": false
+    },
+    "disposition": {
+      "type": "object",
+      "required": ["id", "status", "notes"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "status": {"enum": ["pass", "na", "accepted-minor"]},
+        "notes": {"type": "string"},
+        "issue_code": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}

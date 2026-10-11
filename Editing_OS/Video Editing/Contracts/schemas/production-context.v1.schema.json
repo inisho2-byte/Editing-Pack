@@ -1,0 +1,512 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://arete.local/editing-os/contracts/production-context/v1",
+  "title": "Editing OS Production Context v1",
+  "type": "object",
+  "required": [
+    "contract_type",
+    "schema_version",
+    "project_id",
+    "created_at",
+    "governing_documents",
+    "operating_mode",
+    "artifact_type",
+    "content_archetype",
+    "deliverable",
+    "objective",
+    "audience",
+    "sources",
+    "accessibility",
+    "required_evidence"
+  ],
+  "properties": {
+    "contract_type": {
+      "const": "production-context"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "project_id": {
+      "$ref": "#/$defs/identifier"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "governing_documents": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "items": {
+        "$ref": "#/$defs/governingDocument"
+      }
+    },
+    "operating_mode": {
+      "enum": [
+        "quick",
+        "standard",
+        "flagship"
+      ]
+    },
+    "artifact_type": {
+      "enum": [
+        "video_edit",
+        "generated_video",
+        "motion_graphic",
+        "still_asset",
+        "caption_only",
+        "audio_only",
+        "qa_only",
+        "hybrid"
+      ]
+    },
+    "content_archetype": {
+      "enum": [
+        "educational_explainer",
+        "opinion_commentary",
+        "story_transformation",
+        "proof_demo",
+        "listicle",
+        "promo_ad",
+        "podcast_interview",
+        "documentary",
+        "product_launch",
+        "other"
+      ]
+    },
+    "deliverable": {
+      "type": "object",
+      "required": [
+        "platform",
+        "aspect_ratio",
+        "width_px",
+        "height_px",
+        "fps",
+        "target_duration_seconds",
+        "language"
+      ],
+      "properties": {
+        "platform": {
+          "enum": [
+            "instagram_reels",
+            "youtube_shorts",
+            "youtube",
+            "tiktok",
+            "x",
+            "linkedin",
+            "website",
+            "presentation",
+            "internal",
+            "other"
+          ]
+        },
+        "aspect_ratio": {
+          "pattern": "^[1-9][0-9]*:[1-9][0-9]*$",
+          "type": "string"
+        },
+        "width_px": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "height_px": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "fps": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "maximum": 240
+        },
+        "target_duration_seconds": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "language": {
+          "type": "string",
+          "minLength": 2
+        },
+        "deadline": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        }
+      },
+      "additionalProperties": false
+    },
+    "objective": {
+      "type": "object",
+      "required": [
+        "primary_goal",
+        "performance_objective",
+        "success_definition"
+      ],
+      "properties": {
+        "primary_goal": {
+          "type": "string",
+          "minLength": 1
+        },
+        "performance_objective": {
+          "enum": [
+            "hold",
+            "share",
+            "save",
+            "comment",
+            "click",
+            "convert",
+            "inform",
+            "entertain",
+            "trust",
+            "other"
+          ]
+        },
+        "success_definition": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "audience": {
+      "type": "object",
+      "required": [
+        "description",
+        "awareness_level",
+        "entering_state",
+        "desired_transformation",
+        "desired_action"
+      ],
+      "properties": {
+        "description": {
+          "type": "string",
+          "minLength": 1
+        },
+        "awareness_level": {
+          "enum": [
+            "unaware",
+            "problem_aware",
+            "solution_aware",
+            "product_aware",
+            "most_aware",
+            "mixed"
+          ]
+        },
+        "entering_state": {
+          "type": "string",
+          "minLength": 1
+        },
+        "desired_transformation": {
+          "type": "string",
+          "minLength": 1
+        },
+        "desired_action": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/source"
+      }
+    },
+    "accessibility": {
+      "type": "object",
+      "required": [
+        "captions_required",
+        "caption_delivery",
+        "audio_description_required",
+        "safe_zone_profile",
+        "other_needs"
+      ],
+      "properties": {
+        "captions_required": {
+          "type": "boolean"
+        },
+        "caption_delivery": {
+          "enum": [
+            "burned_in",
+            "sidecar",
+            "both",
+            "not_applicable"
+          ]
+        },
+        "audio_description_required": {
+          "type": "boolean"
+        },
+        "safe_zone_profile": {
+          "type": "string",
+          "minLength": 1
+        },
+        "other_needs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "required_evidence": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/evidenceRequirement"
+      }
+    }
+  },
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "properties": {
+        "governing_documents": {
+          "contains": {
+            "properties": {
+              "role": {
+                "const": "master_prompt"
+              }
+            },
+            "required": [
+              "role"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "properties": {
+        "governing_documents": {
+          "contains": {
+            "properties": {
+              "role": {
+                "const": "taste_profile"
+              }
+            },
+            "required": [
+              "role"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "properties": {
+        "governing_documents": {
+          "contains": {
+            "properties": {
+              "role": {
+                "const": "tool_routing"
+              }
+            },
+            "required": [
+              "role"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "properties": {
+        "governing_documents": {
+          "contains": {
+            "properties": {
+              "role": {
+                "const": "quality_standard"
+              }
+            },
+            "required": [
+              "role"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "properties": {
+        "governing_documents": {
+          "contains": {
+            "properties": {
+              "role": {
+                "const": "editing_handbook"
+              }
+            },
+            "required": [
+              "role"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "accessibility": {
+            "properties": {
+              "captions_required": {
+                "const": false
+              }
+            },
+            "required": [
+              "captions_required"
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "accessibility": {
+            "properties": {
+              "caption_delivery": {
+                "const": "not_applicable"
+              }
+            }
+          }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "identifier": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{2,127}$"
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "governingDocument": {
+      "type": "object",
+      "required": [
+        "role",
+        "path",
+        "sha256"
+      ],
+      "properties": {
+        "role": {
+          "enum": [
+            "master_prompt",
+            "taste_profile",
+            "tool_routing",
+            "quality_standard",
+            "editing_handbook"
+          ]
+        },
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sha256": {
+          "$ref": "#/$defs/sha256"
+        }
+      },
+      "additionalProperties": false
+    },
+    "source": {
+      "type": "object",
+      "required": [
+        "source_id",
+        "type",
+        "locator",
+        "accessible",
+        "usage_rights",
+        "notes"
+      ],
+      "properties": {
+        "source_id": {
+          "$ref": "#/$defs/identifier"
+        },
+        "type": {
+          "enum": [
+            "video",
+            "audio",
+            "image",
+            "document",
+            "web",
+            "script",
+            "data",
+            "other"
+          ]
+        },
+        "locator": {
+          "type": "string",
+          "minLength": 1
+        },
+        "accessible": {
+          "type": "boolean"
+        },
+        "usage_rights": {
+          "enum": [
+            "owned",
+            "licensed",
+            "permission_granted",
+            "fair_use_reviewed",
+            "public_domain",
+            "unknown"
+          ]
+        },
+        "notes": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "evidenceRequirement": {
+      "type": "object",
+      "required": [
+        "evidence_id",
+        "evidence_type",
+        "stage",
+        "schema_id",
+        "expected_path",
+        "required"
+      ],
+      "properties": {
+        "evidence_id": {
+          "$ref": "#/$defs/identifier"
+        },
+        "evidence_type": {
+          "enum": [
+            "editorial_intent",
+            "taste_selection",
+            "audio_plan",
+            "edl_approval",
+            "forced_alignment",
+            "caption_qa",
+            "graphics_qa",
+            "audio_qa",
+            "color_approval",
+            "render_log",
+            "quality_report",
+            "artifact_bound_human_review",
+            "short_form_experiment",
+            "post_publish_learning"
+          ]
+        },
+        "stage": {
+          "enum": [
+            "before-execution",
+            "before-final-render"
+          ]
+        },
+        "schema_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "expected_path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "required": {
+          "const": true
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

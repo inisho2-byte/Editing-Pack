@@ -1,0 +1,423 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://arete.local/editing-os/contracts/audio-plan/v1",
+  "title": "Editing OS Audio Plan v1",
+  "type": "object",
+  "required": [
+    "contract_type",
+    "schema_version",
+    "project_id",
+    "created_at",
+    "production_context",
+    "editorial_intent",
+    "source_assessment",
+    "restoration",
+    "diarization",
+    "scene_audio_roles",
+    "masking_intelligibility_checks",
+    "sync_evidence",
+    "delivery_targets"
+  ],
+  "properties": {
+    "contract_type": {
+      "const": "audio-plan"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "project_id": {
+      "$ref": "#/$defs/identifier"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "production_context": {
+      "$ref": "#/$defs/artifactReference"
+    },
+    "editorial_intent": {
+      "$ref": "#/$defs/artifactReference"
+    },
+    "source_assessment": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "source_id",
+          "track_id",
+          "kind",
+          "sample_rate_hz",
+          "channels",
+          "issues"
+        ],
+        "properties": {
+          "source_id": {
+            "$ref": "#/$defs/identifier"
+          },
+          "track_id": {
+            "$ref": "#/$defs/identifier"
+          },
+          "kind": {
+            "enum": [
+              "dialogue",
+              "ambience",
+              "music",
+              "sound_effect",
+              "mixed"
+            ]
+          },
+          "sample_rate_hz": {
+            "type": "integer",
+            "minimum": 8000,
+            "maximum": 384000
+          },
+          "channels": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 32
+          },
+          "issues": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "enum": [
+                "noise",
+                "reverb",
+                "clicks",
+                "hum",
+                "clipping",
+                "plosives",
+                "sibilance",
+                "low_level",
+                "none"
+              ]
+            },
+            "uniqueItems": true
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "restoration": {
+      "type": "object",
+      "required": [
+        "denoise",
+        "de_reverb",
+        "de_click"
+      ],
+      "properties": {
+        "denoise": {
+          "$ref": "#/$defs/restorationDecision"
+        },
+        "de_reverb": {
+          "$ref": "#/$defs/restorationDecision"
+        },
+        "de_click": {
+          "$ref": "#/$defs/restorationDecision"
+        }
+      },
+      "additionalProperties": false
+    },
+    "diarization": {
+      "type": "object",
+      "required": [
+        "required",
+        "rationale",
+        "speakers"
+      ],
+      "properties": {
+        "required": {
+          "type": "boolean"
+        },
+        "rationale": {
+          "type": "string",
+          "minLength": 1
+        },
+        "speakers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "speaker_id",
+              "label",
+              "source_evidence"
+            ],
+            "properties": {
+              "speaker_id": {
+                "$ref": "#/$defs/identifier"
+              },
+              "label": {
+                "type": "string",
+                "minLength": 1
+              },
+              "source_evidence": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "required": {
+                "const": true
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "speakers": {
+                "minItems": 2
+              }
+            }
+          }
+        }
+      ]
+    },
+    "scene_audio_roles": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "scene_id",
+          "primary",
+          "dialogue",
+          "ambience",
+          "music",
+          "sound_effects",
+          "silence"
+        ],
+        "properties": {
+          "scene_id": {
+            "$ref": "#/$defs/identifier"
+          },
+          "primary": {
+            "enum": [
+              "dialogue",
+              "ambience",
+              "music",
+              "sound_effect",
+              "silence"
+            ]
+          },
+          "dialogue": {
+            "type": "string",
+            "minLength": 1
+          },
+          "ambience": {
+            "type": "string",
+            "minLength": 1
+          },
+          "music": {
+            "type": "string",
+            "minLength": 1
+          },
+          "sound_effects": {
+            "type": "string",
+            "minLength": 1
+          },
+          "silence": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "masking_intelligibility_checks": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "scene_id",
+          "spoken_content_present",
+          "masking_risk",
+          "check_method",
+          "mitigation",
+          "passes"
+        ],
+        "properties": {
+          "scene_id": {
+            "$ref": "#/$defs/identifier"
+          },
+          "spoken_content_present": {
+            "type": "boolean"
+          },
+          "masking_risk": {
+            "enum": [
+              "none",
+              "low",
+              "medium",
+              "high"
+            ]
+          },
+          "check_method": {
+            "type": "string",
+            "minLength": 1
+          },
+          "mitigation": {
+            "type": "string",
+            "minLength": 1
+          },
+          "passes": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "sync_evidence": {
+      "type": "object",
+      "required": [
+        "method",
+        "reference_artifact",
+        "maximum_offset_ms",
+        "measured_offset_ms",
+        "passes"
+      ],
+      "properties": {
+        "method": {
+          "type": "string",
+          "minLength": 1
+        },
+        "reference_artifact": {
+          "$ref": "#/$defs/artifactReference"
+        },
+        "maximum_offset_ms": {
+          "type": "number",
+          "minimum": 0
+        },
+        "measured_offset_ms": {
+          "type": "number",
+          "minimum": 0
+        },
+        "passes": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "delivery_targets": {
+      "type": "object",
+      "required": [
+        "integrated_loudness_lufs",
+        "true_peak_dbtp",
+        "loudness_range_lu",
+        "dialogue_priority",
+        "target_rationale"
+      ],
+      "properties": {
+        "integrated_loudness_lufs": {
+          "type": "number",
+          "minimum": -70,
+          "maximum": 0
+        },
+        "true_peak_dbtp": {
+          "type": "number",
+          "minimum": -20,
+          "maximum": 0
+        },
+        "loudness_range_lu": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 40
+        },
+        "dialogue_priority": {
+          "type": "boolean"
+        },
+        "target_rationale": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "identifier": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{2,127}$"
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "artifactReference": {
+      "type": "object",
+      "required": [
+        "path",
+        "sha256"
+      ],
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sha256": {
+          "$ref": "#/$defs/sha256"
+        }
+      },
+      "additionalProperties": false
+    },
+    "restorationDecision": {
+      "type": "object",
+      "required": [
+        "needed",
+        "rationale",
+        "maximum_reduction_db"
+      ],
+      "properties": {
+        "needed": {
+          "type": "boolean"
+        },
+        "rationale": {
+          "type": "string",
+          "minLength": 1
+        },
+        "maximum_reduction_db": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 30
+        }
+      },
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "needed": {
+                "const": false
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "maximum_reduction_db": {
+                "type": "null"
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "maximum_reduction_db": {
+                "type": "number"
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

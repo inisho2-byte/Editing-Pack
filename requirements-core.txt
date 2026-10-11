@@ -1,0 +1,2 @@
+# Direct core dependency. Exact tested transitive versions: requirements-core.lock.txt
+jsonschema==4.26.0

@@ -1,0 +1,592 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://arete.local/editing-os/contracts/taste-selection/v1",
+  "title": "Editing OS Taste Selection v1",
+  "type": "object",
+  "required": [
+    "contract_type",
+    "schema_version",
+    "project_id",
+    "created_at",
+    "production_context",
+    "taste_profile_sha256",
+    "options",
+    "selection",
+    "reject_reflex_review"
+  ],
+  "properties": {
+    "contract_type": {
+      "const": "taste-selection"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "project_id": {
+      "$ref": "#/$defs/identifier"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "production_context": {
+      "$ref": "#/$defs/artifactReference"
+    },
+    "taste_profile_sha256": {
+      "$ref": "#/$defs/sha256"
+    },
+    "options": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 3,
+      "items": {
+        "$ref": "#/$defs/tasteOption"
+      }
+    },
+    "selection": {
+      "type": "object",
+      "required": [
+        "selected_option_id",
+        "selected_by",
+        "selected_at",
+        "reason",
+        "explicit_human_choice"
+      ],
+      "properties": {
+        "selected_option_id": {
+          "$ref": "#/$defs/identifier"
+        },
+        "selected_by": {
+          "type": "string",
+          "minLength": 1
+        },
+        "selected_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 1
+        },
+        "explicit_human_choice": {
+          "const": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "reject_reflex_review": {
+      "type": "object",
+      "required": [
+        "oversaturated_color",
+        "cheesy_transitions_or_fx",
+        "cluttered_frames",
+        "generic_or_templated",
+        "notes"
+      ],
+      "properties": {
+        "oversaturated_color": {
+          "$ref": "#/$defs/rejectCheck"
+        },
+        "cheesy_transitions_or_fx": {
+          "$ref": "#/$defs/rejectCheck"
+        },
+        "cluttered_frames": {
+          "$ref": "#/$defs/rejectCheck"
+        },
+        "generic_or_templated": {
+          "$ref": "#/$defs/rejectCheck"
+        },
+        "notes": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "identifier": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{2,127}$"
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "artifactReference": {
+      "type": "object",
+      "required": [
+        "path",
+        "sha256"
+      ],
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sha256": {
+          "$ref": "#/$defs/sha256"
+        }
+      },
+      "additionalProperties": false
+    },
+    "tasteOption": {
+      "type": "object",
+      "required": [
+        "option_id",
+        "name",
+        "status",
+        "content_fit",
+        "risk",
+        "preview"
+      ],
+      "properties": {
+        "option_id": {
+          "$ref": "#/$defs/identifier"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status": {
+          "enum": [
+            "candidate",
+            "selected",
+            "rejected"
+          ]
+        },
+        "content_fit": {
+          "type": "string",
+          "minLength": 1
+        },
+        "risk": {
+          "type": "string",
+          "minLength": 1
+        },
+        "preview": {
+          "$ref": "#/$defs/artifactReference"
+        },
+        "treatment_tokens": {
+          "$ref": "#/$defs/treatmentTokens"
+        },
+        "treatment_artifact": {
+          "$ref": "#/$defs/artifactReference"
+        }
+      },
+      "additionalProperties": false,
+      "oneOf": [
+        {
+          "required": [
+            "treatment_tokens"
+          ],
+          "not": {
+            "required": [
+              "treatment_artifact"
+            ]
+          }
+        },
+        {
+          "required": [
+            "treatment_artifact"
+          ],
+          "not": {
+            "required": [
+              "treatment_tokens"
+            ]
+          }
+        }
+      ]
+    },
+    "rejectCheck": {
+      "type": "object",
+      "required": [
+        "passes",
+        "evidence"
+      ],
+      "properties": {
+        "passes": {
+          "type": "boolean"
+        },
+        "evidence": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "treatmentTokens": {
+      "type": "object",
+      "required": [
+        "palette",
+        "typography",
+        "motion",
+        "captions",
+        "color_grade",
+        "audio"
+      ],
+      "properties": {
+        "palette": {
+          "type": "object",
+          "required": [
+            "background",
+            "surface",
+            "foreground",
+            "muted",
+            "accents"
+          ],
+          "properties": {
+            "background": {
+              "$ref": "#/$defs/hexColor"
+            },
+            "surface": {
+              "$ref": "#/$defs/hexColor"
+            },
+            "foreground": {
+              "$ref": "#/$defs/hexColor"
+            },
+            "muted": {
+              "$ref": "#/$defs/hexColor"
+            },
+            "accents": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 4,
+              "items": {
+                "$ref": "#/$defs/hexColor"
+              },
+              "uniqueItems": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "typography": {
+          "type": "object",
+          "required": [
+            "display_family",
+            "body_family",
+            "case_policy",
+            "weight_strategy"
+          ],
+          "properties": {
+            "display_family": {
+              "type": "string",
+              "minLength": 1
+            },
+            "body_family": {
+              "type": "string",
+              "minLength": 1
+            },
+            "case_policy": {
+              "enum": [
+                "sentence",
+                "title",
+                "upper_emphasis_only",
+                "mixed_authored"
+              ]
+            },
+            "weight_strategy": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        },
+        "motion": {
+          "type": "object",
+          "required": [
+            "style",
+            "default_easing",
+            "minimum_duration_ms",
+            "maximum_duration_ms"
+          ],
+          "properties": {
+            "style": {
+              "type": "string",
+              "minLength": 1
+            },
+            "default_easing": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minimum_duration_ms": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 5000
+            },
+            "maximum_duration_ms": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 10000
+            }
+          },
+          "additionalProperties": false
+        },
+        "captions": {
+          "type": "object",
+          "required": [
+            "profile",
+            "phrase_strategy",
+            "emphasis",
+            "max_chars_per_line",
+            "max_words_per_caption",
+            "max_lines",
+            "minimum_exposure_ms",
+            "maximum_caption_duration_ms",
+            "reading_behavior",
+            "font_size_short_edge_px",
+            "primary_color",
+            "accent_color",
+            "outline_color",
+            "outline_px",
+            "shadow_px",
+            "emphasis_scale_percent",
+            "entry_ms",
+            "exit_ms",
+            "motion"
+          ],
+          "properties": {
+            "profile": {
+              "type": "string",
+              "minLength": 1
+            },
+            "phrase_strategy": {
+              "type": "string",
+              "minLength": 1
+            },
+            "emphasis": {
+              "type": "string",
+              "minLength": 1
+            },
+            "max_chars_per_line": {
+              "type": "integer",
+              "minimum": 8,
+              "maximum": 80
+            },
+            "max_words_per_caption": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 20
+            },
+            "max_lines": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 2
+            },
+            "minimum_exposure_ms": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 10000
+            },
+            "maximum_caption_duration_ms": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 30000
+            },
+            "reading_behavior": {
+              "enum": [
+                "auto",
+                "full-reading",
+                "skimming",
+                "glancing"
+              ]
+            },
+            "font_size_short_edge_px": {
+              "type": "number",
+              "minimum": 12,
+              "maximum": 240
+            },
+            "primary_color": {
+              "$ref": "#/$defs/hexColor"
+            },
+            "accent_color": {
+              "$ref": "#/$defs/hexColor"
+            },
+            "outline_color": {
+              "$ref": "#/$defs/hexColor"
+            },
+            "outline_px": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 20
+            },
+            "shadow_px": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 20
+            },
+            "emphasis_scale_percent": {
+              "type": "integer",
+              "minimum": 100,
+              "maximum": 200
+            },
+            "entry_ms": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 5000
+            },
+            "exit_ms": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 5000
+            },
+            "motion": {
+              "enum": [
+                "none",
+                "scale-settle",
+                "native-pop",
+                "clean-settle",
+                "precision-fade",
+                "arete-bounce"
+              ]
+            }
+          },
+          "additionalProperties": false
+        },
+        "color_grade": {
+          "type": "object",
+          "required": [
+            "correction_required",
+            "look_description",
+            "render_strategy",
+            "filtergraph",
+            "lut_reference"
+          ],
+          "properties": {
+            "correction_required": {
+              "type": "boolean"
+            },
+            "look_description": {
+              "type": "string",
+              "minLength": 1
+            },
+            "render_strategy": {
+              "enum": [
+                "ungraded",
+                "ffmpeg_filter",
+                "lut_3d"
+              ]
+            },
+            "filtergraph": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "lut_reference": {
+              "anyOf": [
+                {
+                  "$ref": "#/$defs/artifactReference"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "additionalProperties": false,
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "render_strategy": {
+                    "const": "ffmpeg_filter"
+                  }
+                },
+                "required": [
+                  "render_strategy"
+                ]
+              },
+              "then": {
+                "properties": {
+                  "filtergraph": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "lut_reference": {
+                    "type": "null"
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "render_strategy": {
+                    "const": "lut_3d"
+                  }
+                },
+                "required": [
+                  "render_strategy"
+                ]
+              },
+              "then": {
+                "properties": {
+                  "filtergraph": {
+                    "type": "null"
+                  },
+                  "lut_reference": {
+                    "$ref": "#/$defs/artifactReference"
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "render_strategy": {
+                    "const": "ungraded"
+                  }
+                },
+                "required": [
+                  "render_strategy"
+                ]
+              },
+              "then": {
+                "properties": {
+                  "filtergraph": {
+                    "type": "null"
+                  },
+                  "lut_reference": {
+                    "type": "null"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "audio": {
+          "type": "object",
+          "required": [
+            "dialogue",
+            "music",
+            "sound_effects",
+            "silence"
+          ],
+          "properties": {
+            "dialogue": {
+              "type": "string",
+              "minLength": 1
+            },
+            "music": {
+              "type": "string",
+              "minLength": 1
+            },
+            "sound_effects": {
+              "type": "string",
+              "minLength": 1
+            },
+            "silence": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "hexColor": {
+      "type": "string",
+      "pattern": "^#[0-9A-Fa-f]{6}([0-9A-Fa-f]{2})?$"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "schema": "editing-pack-synthetic-graphic-options/v1",
+  "synthetic": true,
+  "selected_by_human": false,
+  "publication_approved": false,
+  "options": [
+    {
+      "id": "segment-color-bars",
+      "description": "Blue bar for range one, orange for range two."
+    },
+    {
+      "id": "monochrome-bars",
+      "description": "Use position and neutral tones to distinguish the ranges."
+    }
+  ],
+  "fixture_recipe": "segment-color-bars",
+  "production_selection": false,
+  "note": "Fixed test recipe only; real graphics require actual-material previews and explicit selection."
+}

@@ -1,0 +1,226 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://arete.local/editing-os/contracts/edl-approval/v1",
+  "title": "Editing OS EDL Approval v1",
+  "type": "object",
+  "required": [
+    "contract_type",
+    "schema_version",
+    "project_id",
+    "created_at",
+    "production_context",
+    "edl",
+    "preview",
+    "timeline_map",
+    "retimed_words",
+    "reviewer",
+    "status",
+    "resolved_decisions",
+    "unresolved_decision_ids",
+    "approval"
+  ],
+  "properties": {
+    "contract_type": {
+      "const": "edl-approval"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "project_id": {
+      "$ref": "#/$defs/identifier"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "production_context": {
+      "$ref": "#/$defs/artifactReference"
+    },
+    "edl": {
+      "$ref": "#/$defs/artifactReference"
+    },
+    "preview": {
+      "$ref": "#/$defs/artifactReference"
+    },
+    "timeline_map": {
+      "$ref": "#/$defs/artifactReference"
+    },
+    "retimed_words": {
+      "$ref": "#/$defs/artifactReference"
+    },
+    "reviewer": {
+      "type": "object",
+      "required": [
+        "reviewer_id",
+        "name",
+        "kind"
+      ],
+      "properties": {
+        "reviewer_id": {
+          "$ref": "#/$defs/identifier"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "kind": {
+          "const": "human"
+        }
+      },
+      "additionalProperties": false
+    },
+    "status": {
+      "enum": [
+        "approved",
+        "rejected",
+        "changes_requested"
+      ]
+    },
+    "resolved_decisions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "decision_id",
+          "description",
+          "disposition",
+          "resolution",
+          "resolved_by",
+          "resolved_at"
+        ],
+        "properties": {
+          "decision_id": {
+            "$ref": "#/$defs/identifier"
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1
+          },
+          "disposition": {
+            "enum": [
+              "accepted",
+              "revised",
+              "rejected",
+              "waived"
+            ]
+          },
+          "resolution": {
+            "type": "string",
+            "minLength": 1
+          },
+          "resolved_by": {
+            "type": "string",
+            "minLength": 1
+          },
+          "resolved_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "unresolved_decision_ids": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/identifier"
+      },
+      "uniqueItems": true
+    },
+    "approval": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "object",
+          "required": [
+            "reviewed_at",
+            "approved_edl_sha256",
+            "timeline_fingerprint",
+            "selected_taste_selection_sha256",
+            "notes"
+          ],
+          "properties": {
+            "reviewed_at": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "approved_edl_sha256": {
+              "$ref": "#/$defs/sha256"
+            },
+            "timeline_fingerprint": {
+              "$ref": "#/$defs/sha256"
+            },
+            "selected_taste_selection_sha256": {
+              "$ref": "#/$defs/sha256"
+            },
+            "notes": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        }
+      ]
+    }
+  },
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "approved"
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "then": {
+        "properties": {
+          "unresolved_decision_ids": {
+            "maxItems": 0
+          },
+          "approval": {
+            "type": "object"
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "approval": {
+            "type": "null"
+          }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "identifier": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{2,127}$"
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "artifactReference": {
+      "type": "object",
+      "required": [
+        "path",
+        "sha256"
+      ],
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sha256": {
+          "$ref": "#/$defs/sha256"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

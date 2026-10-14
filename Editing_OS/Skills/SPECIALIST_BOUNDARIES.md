@@ -35,3 +35,7 @@ The nested Video editing engine's authored README still describes direct
 `--apply-edits` as approval. That is historical diagnostic behavior. Current
 production must use the owned Orchestration Adapter and consume its exact
 authorization; no submodule internals were changed by this upgrade.
+
+## New method references
+
+Upstream drawing/window.seek/playback conventions, live audio analyzers, website controls, vendor scores and studied technique counts do not replace the native HyperFrames output clock, current forced alignment/retiming, explicit human taste or encoded readiness. No ACE-Step, Barty, Animate, Fiber/Drei/Theatre/shadcn runtime, optimizer or model is installed by these recipes. External resources are deliberately provisioned and license-checked.

@@ -127,3 +127,13 @@ authoritative specialist path; and the Quality Engine alone may issue
 ## Standalone tools and handoffs
 
 Owned workbench utilities live at Editing_OS/Tools/editing-workbench. External specialists remain outside this repository and use config/tools.manifest.json pins and their own terms. Use docs/installation.md and docs/configuration.md for explicit external paths and tested package versions; existing machine/browser paths and historical render speeds are not public prerequisites. GSAP and Inter resources require explicit licensed provisioning. Native bridges are conditional prototypes; the adapter and Quality Engine remain the authority.
+
+## Additional owned routes
+
+| Need | Owner | Limit |
+|---|---|---|
+| Measured PCM reaction | [audio-reactive-motion](audio-reactive-motion/SKILL.md), public audio_motion helper | Energy is not beat/word alignment |
+| Product/motion B-roll, mattes and sound passes | [motion-graphics-recipes](motion-graphics-recipes/SKILL.md) | Existing semantic/taste/runtime/evidence owners remain authoritative |
+| Reference/medium observations | [procedural-motion-design](procedural-motion-design/SKILL.md), optional style_inspect helper | Pillow observations do not infer style similarity or approval |
+| Physical object scene | [studio-3d-objects](studio-3d-objects/SKILL.md) | Explicit local Three/GSAP/fonts/browser; software/hardware evidence is scoped |
+| Model animation/optimization or website scene | Applicable3D/web guidance | Conditional tools; nine studied references are not nine installed integrations |

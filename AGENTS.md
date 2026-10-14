@@ -20,3 +20,5 @@ Use session-owned preview processes; identify an existing server's owner before 
 For toolkit changes, review exact paths, licenses and privacy before a public push. Private release inventories/scan logs and excluded-project names must stay outside the public repository. Authored public docs are maintained here; no household schema or parent-generated README is exported. Keep governing-document hashes current after changes; never reuse old approvals or weaken gates to pass tests.
 
 Owned operational instructions are MIT. Explanatory docs/handbook are CC BY 4.0, with MIT code snippets, as detailed in LICENSE-SCOPE.md. Third-party terms remain separate. Do not claim native-app, alignment, cross-platform or clean-install support without the corresponding verification.
+
+New specialist routes: audio-reactive-motion, motion-graphics-recipes, procedural-motion-design and studio-3d-objects under Editing_OS/Skills. Load applicable guidance and handbook Chapter23, not every specialist at startup. Existing contracts/genuine approvals remain authoritative. No private filesystem, vendor runtime or approval is bundled.

@@ -19,3 +19,7 @@ Favor a clear hierarchy and adequate reading time while evaluating alternatives;
 ## Preserve evidence
 
 Hash the current governing template with the other four documents when creating production context. Store the private selected treatment and its artifacts in the job workspace. Any local edit to this governing document changes its hash and requires a new context and revalidation of dependent authority. No history from another user or project is inherited.
+
+## Reference and3D treatment choices
+
+The generic STYLE_LIBRARY and starter materials are unapproved examples. Compare shape, light, camera, materials, typography and motion against the actual reference/content. When unresolved, show useful options on the same material and freeze the explicit choice. Select capture mode deliberately; a renderer/backend label is not a visual or determinism pass. Never publish personal style history as reusable defaults.

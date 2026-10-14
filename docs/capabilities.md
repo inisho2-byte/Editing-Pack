@@ -26,8 +26,20 @@ Observed on Windows x64, CPython 3.11.9, FFmpeg/FFprobe 9.0.2 and Node.js 26.8.1
 | Real production source-to-final | Unverified | Genuine alignment, selected treatment, approved cuts and exact-artifact human review required |
 | Linux/macOS/other Python versions | Unverified | No cross-platform claim from this Windows observation |
 
-The core runner contains 184 checks. Optional graphics adds 29 for 213 total. Counts measure coverage, not production readiness. See [candidate status](../config/candidate-status.json).
+The expanded core runner contains 209 checks (including 9 audio checks). Style analysis adds 12, graphics adds 29 and the native 3D browser group adds one test containing 24 browser assertions, for 251 total enabled tests. Counts measure coverage, not production readiness. See [candidate status](../config/candidate-status.json).
 
 ## Expected human work
 
 The editor defines goals/source permissions, reviews intent and cuts, selects treatment on real material, verifies native targets, inspects encoded output and signs the exact artifact review. Missing/stale evidence is rejected; these decisions are not silently completed.
+
+## New capability scope
+
+| Capability | Implemented scope | Limit |
+|---|---|---|
+| Offline audio motion | PCM identity, rational FPS, FFT bands and envelopes; 9 tests | No music generation, voice model or production alignment |
+| Style observations | Bounded ROI, palette, alpha and subject metrics; 12 optional tests | No inferred taste or automated human selection |
+| Native 3D starter | Owned hinge/object/material source, local dependencies and seek lifecycle; full-size software repeats matched | Software rendering is costly; fresh hardware repeat FAILED and is experimental |
+| Recipe/reference guidance | Four generic skill families and 118 bounded handbook techniques | Studying a technique or repository does not implement every native effect |
+
+See [verification](verification.md) for current release-gate evidence rather than
+treating historical v0.1 results as certification of changed code.

@@ -1,0 +1,2 @@
+# Optional image observations; core remains independent of Pillow.
+Pillow==12.3.0

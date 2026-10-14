@@ -29,3 +29,7 @@ Resolve Lua/MCP offers bounded reads and an authorized verified-empty-project co
 The launcher retains GUI/CLI modes with owned previews. Closing it stops its process tree; occupied port 3100 is refused. Windows child consoles are suppressed, logs stay external and no sign-in service or automatic install is created.
 
 Code is MIT; this guide is CC BY 4.0 with MIT snippets. See [workflow](../../../docs/workflow.md) and [optional tools](../../../docs/optional-tools.md).
+
+## New diagnostic/draft capabilities
+
+audio_motion.py analyzes conformed PCM with rational FPS and source hashes. style_inspect.py requires the optional pinned Pillow profile and supplies bounded ROI/alpha/palette observations. capability_examples.py generates external synthetic PCM/image/studio jobs only with an explicit draft flag; test_studio3d.py is an isolated required browser profile. None grants production approval. New external3D fields three_module and puppeteer_entry are optional; old configs remain valid.

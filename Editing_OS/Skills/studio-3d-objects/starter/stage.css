@@ -1,0 +1,17 @@
+/* MIT. Generic draft stage, unapproved treatment tokens. */
+@font-face{font-family:ID;src:url(../fonts/inter-regular.woff2);font-weight:400}
+@font-face{font-family:ID;src:url(../fonts/inter-bold.woff2);font-weight:700}
+.st-root{position:absolute;inset:0;overflow:hidden;font-family:'ID'}
+.st-grey{position:absolute;inset:0;background:radial-gradient(900px 1100px at 52% 42%,#E3E2DF,#D3D2CE 62%,#B9B8B4 120%)}
+.st-grey svg{position:absolute;left:0;top:0;overflow:visible}
+.st-vig{position:absolute;inset:0;background:radial-gradient(1200px 1500px at 50% 45%,transparent 55%,rgba(0,0,0,.10))}
+.st-gl{position:absolute;left:0;top:0;width:100%;height:100%;display:block}
+.ktx{position:absolute;left:84px;color:#1C1C1E;line-height:1.02;letter-spacing:-.02em;white-space:nowrap}
+.ktx .ln{display:block}
+.ktx .wx{display:inline-block;opacity:0;margin-right:.22em}
+.ktx .s{font-size:54px;font-weight:400}
+.ktx .m{font-size:74px;font-weight:700}
+.ktx .l{font-size:118px;font-weight:700;letter-spacing:-.03em}
+.ktx .xl{font-size:158px;font-weight:700;letter-spacing:-.035em}
+.ktx .red{color:#E5352B}
+.ktx .green{color:#2E9D46}

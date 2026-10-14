@@ -1,15 +1,28 @@
 # Changelog
 
-Unreleased entries describe the local candidate. Proposed initial prerelease: 0.1.0-rc.1. No public tag or publication date is assigned yet.
+## Unreleased — proposed 0.2.0-rc.1
 
-## 0.1.0-rc.1 — prepared candidate
+- Add four generic specialist families, an unapproved style catalog and original
+  Chapter 23 method routing for 118 studied techniques with explicit limits.
+- Add guarded offline audio analysis, optional Pillow image analysis and an owned
+  physical 3D starter with explicit external Three/browser resources.
+- Add generated-input examples, exporter web-source/privacy regressions and
+  separate core/style/graphics/3D browser test profiles.
+- Preserve existing portable engines, production schema semantics, forced
+  alignment, approved cuts, selected treatment and encoded human-review gates.
+- Correct obsolete first-release preparation wording and document configuration,
+  licenses, prerequisite failures, software rendering cost and capture limits.
 
-- Prepared inspectable owned source, handbook, operating instructions, production contracts and editing/caption/graphics/quality engines.
-- Added standalone configuration, external workspaces, pinned core setup and opt-in graphics/native SDK dependencies.
-- Preserved timing, explicit treatment and encoded-artifact review gates; labelled synthetic fixtures and conditional integrations.
-- Added onboarding, capability limits, privacy, troubleshooting, contributing, private security reporting and maintenance guidance.
+Exact candidate approval, public CI and independent public-clone verification
+remain required before assigning a new publication date.
 
-Release notes must describe actual verification, conditional paths and schema/config compatibility changes. See [maintenance](docs/maintenance.md).
+## 0.1.0-rc.1 — 2026-10-11
 
-- Fresh Windows verification: 184 core/213 optional checks, synthetic and headless browser decode/repeat checks. Live models/native editor work remain unverified.
-- Prepared Windows core/synthetic, dependency consistency, local link/source and checksum-pinned secret scanning CI. GitHub execution remains pending publication.
+- Published owned handbook, operating instructions, production contracts,
+  editing/caption/graphics/quality engines and portable configuration.
+- Verified 184 core and 29 optional graphics checks on Windows, synthetic clock,
+  browser encoding, decode/repeats and authority refusals.
+- Published through the protected PR workflow with CI checks. Optional models,
+  paid providers and native editor execution remained unverified.
+
+See [maintenance](docs/maintenance.md) for version and publication practice.

@@ -132,7 +132,7 @@
       "role": "graphics animation runtime",
       "distribution": "external-package-install",
       "install": "Explicit pinned npm install --ignore-scripts outside toolkit; configure file paths. See docs/installation.md.",
-      "compatibility": "Installed in isolated setup; owned graphics media/lint tests passed. Full public render workflow pending.",
+      "compatibility": "See docs/verification.md for dated evidence; final candidate and actual jobs need their own applicable checks.",
       "package": "gsap",
       "integrity": "sha512-dMW4CWBTUK1AEEDeZc1g4xpPGIrSf9fJF960qbTZmN/QwZIWY5wgliS6JWl9/25fpTGJrMRtSjGtOmPnfjZB+A==",
       "asset_sha256": {
@@ -147,7 +147,7 @@
       "role": "regular/bold graphics font resources",
       "distribution": "external-package-install",
       "install": "Explicit pinned npm install --ignore-scripts outside toolkit; configure file paths. See docs/installation.md.",
-      "compatibility": "Installed in isolated setup; owned graphics media/lint tests passed. Full public render workflow pending.",
+      "compatibility": "See docs/verification.md for dated evidence; final candidate and actual jobs need their own applicable checks.",
       "package": "@fontsource/inter",
       "integrity": "sha512-P6r5WnJoKiNVV+zvW2xM13gNdFhAEpQ9dQJHt3naLvfg+LkF2ldgSLiF4T41lf1SQCM9QmkqPTn4TH568IRagg==",
       "font_files": [
@@ -189,7 +189,7 @@
       "role": "external media execution/probing",
       "distribution": "external-install-only",
       "install": "User-selected FFmpeg/FFprobe executable paths or PATH discovery.",
-      "compatibility": "Source media tests used 9.0.2 full Windows build; public workflow verification pending."
+      "compatibility": "See docs/verification.md for dated evidence; final candidate and actual jobs need their own applicable checks."
     },
     {
       "id": "jsonschema",
@@ -200,6 +200,37 @@
       "distribution": "external-package-install",
       "install": "requirements-core.lock.txt in separate environment",
       "compatibility": "Windows x64 Python 3.11.9 isolated core checks passed."
+    },
+    {
+      "id": "three",
+      "version": "0.185.0",
+      "license": "MIT",
+      "role": "optional owned physical 3D runtime",
+      "distribution": "external-package-install",
+      "package": "three",
+      "integrity": "sha512-+yRrcRO2iZa8uzvNNl0d7cL4huhgKgBvVJ0njcTe8xFqZ6DMAFZdCKDP91SEAuj25bNAj7k1QQdf+srZywVK6w==",
+      "install": "Explicit exact npm install --ignore-scripts outside toolkit; see docs/installation.md.",
+      "compatibility": "Required browser profile; no implicit install or private asset discovery."
+    },
+    {
+      "id": "puppeteer-core",
+      "version": "25.13.0",
+      "license": "Apache-2.0",
+      "role": "optional native browser test client",
+      "distribution": "external-package-install",
+      "package": "puppeteer-core",
+      "integrity": "sha512-cyBS0OEx3e9NS53B5F6+UazXtR7f9Tw0cR1/FbPW59/hV6JPZbkIiMnxK2543IkFp3rsGlLn1iPDLF77TJsJsA==",
+      "install": "Explicit exact npm install --ignore-scripts outside toolkit; see docs/installation.md.",
+      "compatibility": "Required browser profile; no implicit install or private asset discovery."
+    },
+    {
+      "id": "pillow",
+      "version": "12.3.0",
+      "license": "MIT-CMU",
+      "role": "optional bounded image observations",
+      "distribution": "external-package-install",
+      "install": "requirements-style.lock.txt",
+      "compatibility": "Optional style profile; missing dependency fails explicitly."
     }
   ]
 }

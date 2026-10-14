@@ -12,7 +12,7 @@ Preserve reusable source/private job separation. Read [contributing](../CONTRIBU
 
 ## Version practice
 
-Maintain [CHANGELOG](../CHANGELOG.md)'s Unreleased section. Choose/approve the first version during release review; this candidate has none. Use semantic versions later: patch for compatible fixes, minor for compatible capabilities, major for incompatible public CLI/config/schema behavior. Production schema versions are separate contracts; do not change v1 incompatibly in place.
+Maintain [CHANGELOG](../CHANGELOG.md)'s Unreleased section. The published baseline is v0.1.0-rc.1; this update proposes v0.2.0-rc.1, subject to exact-candidate release review. Use patch versions for compatible fixes, minor versions for compatible capabilities and major versions for incompatible public CLI/config/schema behavior. Production schema versions are separate contracts; do not change v1 incompatibly in place.
 
 Update `toolkit.json` release_version and candidate status only to describe the actual approved release. Tests are not publication permission. Release notes identify tested platforms, validation, migration and limits.
 

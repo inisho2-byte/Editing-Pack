@@ -10,7 +10,9 @@
     "browser": null,
     "gsap_runtime": null,
     "inter_regular_font": null,
-    "inter_bold_font": null
+    "inter_bold_font": null,
+    "three_module": null,
+    "puppeteer_entry": null
   },
   "providers": {
     "ideogram": {

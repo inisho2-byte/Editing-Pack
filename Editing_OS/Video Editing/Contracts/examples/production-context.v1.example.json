@@ -7,27 +7,27 @@
     {
       "role": "master_prompt",
       "path": "Skills/MASTER_PROMPT.md",
-      "sha256": "0f62e0c8fe668ade6502f2cc4eedc2cc622f82c9d3dd42d84d6b1b9946b8e164"
+      "sha256": "978d4e8a76dde8406e35c609c651e14b16ebd133bd398e596208ddb767c6f7fd"
     },
     {
       "role": "taste_profile",
       "path": "Skills/TASTE_PROFILE.md",
-      "sha256": "c1e0d654dfd694f9f20cbf279491748a761becdc46bab36667316abcfb09c1dc"
+      "sha256": "2899765b6519ce26659e9fc666c37623dd760c4b79d94b0cb9b8d18b1335a12a"
     },
     {
       "role": "tool_routing",
       "path": "Skills/TOOL_ROUTING.md",
-      "sha256": "36dcd8a41d2e7173b6f8e26cd2afa518149f5399d02754919a79ea868ae32474"
+      "sha256": "5106e13d6141755afb8acdd85cfd02b25104d1ced54919fecdaa11b8bfffe6da"
     },
     {
       "role": "quality_standard",
       "path": "Skills/QUALITY_STANDARD.md",
-      "sha256": "9d0db6c34b856bd281521223a283d60e5c4bd06f9f40ef7bfa8a7098b38be024"
+      "sha256": "c37b18ddaa70c338eacc1644beed4feda29bc28e2b6762e6d8383bc122f4f1c2"
     },
     {
       "role": "editing_handbook",
       "path": "Skills/Video editing handbook/Elite_AI_Video_Editing_Workflow.md",
-      "sha256": "ea0aa5f5511678fe04dd5dc2643b63f90994bd57450a3c6f70752152b0623949"
+      "sha256": "50a274ea6052be49baf5b589157bbb8c45288052945c15486bd02336b94d068f"
     }
   ],
   "operating_mode": "standard",

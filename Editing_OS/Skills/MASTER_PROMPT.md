@@ -193,3 +193,8 @@ Begin only once the source material (transcript, footage notes, platform, goal)
 and active contracts are available and `production-context/v1` validates. If
 they are not, ask for them or create the missing context before execution.
 ```
+
+SPECIALIST EXTENSIONS
+- Load only the applicable new recipe: audio-reactive-motion, motion-graphics-recipes, procedural-motion-design or studio-3d-objects. Use Chapter23 for studied methods and their limits. Neither a genre nor an upstream skill selects treatment.
+- Native3D/object scenes require explicit local assets, failed-dependency rejection, seek-safe state and applicable full-size/encoded/repeat evidence. Model/website/native-editor paths remain conditional until separately verified.
+- Keep reusable code in the toolkit and all actual jobs/evidence in the selected external workspace. Keep production schema roles/capabilities unchanged; recipe names are not new enums.

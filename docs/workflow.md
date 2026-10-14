@@ -85,3 +85,14 @@ This prints a template, not approval. Feed completed review and required evidenc
 ## When something changes
 
 Changing cuts invalidates dependent timing/caption/graphics evidence. Changing treatment requires renewed selection and dependent render evidence. Changing export bytes requires matching fresh encoded QA and human review. Correct mismatches rather than carrying old approvals forward.
+
+## Motion and reference handoffs
+
+Use the [skill index](../Editing_OS/Skills/README.md) to choose applicable craft.
+Freeze final audio placement before computing frame-indexed motion observations;
+index them from absolute output time. Image palette/ROI measurements guide option
+preparation and cannot choose taste. Physical 3D scenes require dependency-ready
+seeking and encoded repeat checks for the claimed capture profile. Keep genuine
+forced alignment, approved EDL, retimed words, explicit treatment and exact-artifact
+human review at the existing seams. A toolkit release is distinct from publishing
+a video produced with it.

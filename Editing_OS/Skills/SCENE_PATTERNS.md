@@ -57,3 +57,7 @@ before animation. Do not imply rights from a filename or a successful download.
 Check motion in reading order, captions against actual speech, audio/listening
 continuity at every cut, and consistency between grade/background/type. Historical
 project colors, typography sizes and PiP coordinates remain project-specific.
+
+## New specialist recipes
+
+Use [motion recipes](motion-graphics-recipes/SKILL.md) for persistent-object workflow and product explanations, [audio response](audio-reactive-motion/SKILL.md) for measured music accents, and [procedural identity](procedural-motion-design/SKILL.md) for a coherent reference vocabulary. [Studio objects](studio-3d-objects/SKILL.md) supplies real object actions; illustrative geometry is distinct from source proof. Preserve trigger, settling hold, meaningful final state, source/output clock and explicit selected treatment. No recipe overrides existing schemas/gates.

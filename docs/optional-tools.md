@@ -41,3 +41,14 @@ Do not run the connection test in a real working project. Its create/readback/de
 The manifest references video-use, open-design, voicebox, OpenMontage, Playwright MCP and composition toolkits. Follow pinned upstream setup externally and retain their licenses/notices. OpenMontage's AGPL terms remain separate. Optional scheduling cannot replace the adapter's contracts or Quality readiness.
 
 See [third-party notices](../THIRD_PARTY_NOTICES.md) and [capabilities](capabilities.md).
+
+## Analysis and physical-object resources
+
+Pillow 12.3.0 adds bounded image analysis. Three.js 0.185.0 and puppeteer-core
+25.13.0 add the owned starter/browser regression profile alongside configured
+HyperFrames 0.8.146, GSAP 3.15.0, Inter 5.2.8 and Chrome Headless Shell. Explicit
+external installation commands are in [installation](installation.md). Three
+and Puppeteer are MIT/Apache-2.0 respectively; GSAP has its own custom license
+and Inter remains OFL. Installed assets are staged only into external jobs.
+The nine studied 3D/web repositories are references, not installed integrations;
+see [provenance](../Editing_OS/Skills/PROVENANCE.md).

@@ -4,8 +4,8 @@ import json,os,re,shutil,subprocess,sys
 from pathlib import Path
 
 class ConfigurationError(ValueError): pass
-TOOL_NAMES={'ffmpeg','ffprobe','node','hyperframes_cli','browser','gsap_runtime','inter_regular_font','inter_bold_font'}
-FILE_TOOLS={'hyperframes_cli','gsap_runtime','inter_regular_font','inter_bold_font'}
+TOOL_NAMES={'ffmpeg','ffprobe','node','hyperframes_cli','browser','gsap_runtime','inter_regular_font','inter_bold_font','three_module','puppeteer_entry'}
+FILE_TOOLS={'hyperframes_cli','gsap_runtime','inter_regular_font','inter_bold_font','three_module','puppeteer_entry'}
 HYPERFRAMES_VERSION='0.8.146'
 
 def contains(root,path):return path==root or root in path.parents
@@ -126,3 +126,15 @@ def model_environment():
  w=workspace_root();cache=output(w/'dependencies/model-cache',require_workspace=True);cache.mkdir(parents=True,exist_ok=True)
  for name,part in [('HF_HOME','huggingface'),('TORCH_HOME','torch')]:os.environ[name]=str(cache/part)
  return cache
+
+
+def studio_resources():
+ module=Path(tool('three_module')).resolve()
+ package=module.parent.parent
+ try:info=json.loads((package/'package.json').read_text(encoding='utf-8'))
+ except (OSError,ValueError) as exc:raise ConfigurationError('Three.js package metadata missing') from exc
+ if info.get('name')!='three' or info.get('version')!='0.185.0' or module!=package/'build/three.module.js':raise ConfigurationError('Require exact external three@0.185.0 build/three.module.js')
+ paths={'three_module':module,'three_core':package/'build/three.core.js','room_environment':package/'examples/jsm/environments/RoomEnvironment.js'}
+ for name in ('gsap_runtime','inter_regular_font','inter_bold_font','puppeteer_entry','node','browser'):paths[name]=Path(tool(name)).resolve()
+ if not all(p.is_file() for p in paths.values()):raise ConfigurationError('Required 3D resource file missing')
+ return paths

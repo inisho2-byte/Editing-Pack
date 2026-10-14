@@ -9,11 +9,14 @@ import argparse,hashlib,json,os,re,stat,subprocess
 from pathlib import Path,PurePosixPath
 
 class ExportError(ValueError): pass
-ALLOWED={'.md','.py','.json','.txt','.lua','.toml','.yml','.yaml','.ps1','.sh'}
+ALLOWED={'.md','.py','.json','.txt','.lua','.toml','.yml','.yaml','.ps1','.sh','.js','.html','.css'}
 SPECIAL={'LICENSE','LICENSE-DOCS','.gitignore','.gitattributes','.env.example'}
 BLOCKED={'.git','.venv','venv','node_modules','__pycache__','videos','projects','assets','archive','audits','case studies','working_mem','.claude','.codex','personal projects','client projects',
          'jobs','inputs','outputs','exports','renders','work','workspace','workspaces','cache','.cache','logs','dependencies','.idea','.vscode','.hyperframes'}
 def digest(p): return hashlib.sha256(p.read_bytes()).hexdigest()
+def public_content(text):
+ if re.search(r'(?i)(?:[A-Z]:[/\\]+Users[/\\]+|file:' + r'//|Project wiki[/\\])', text):
+  raise ExportError('Embedded private/local locator is not public source')
 def inside(p,r): return p==r or r in p.parents
 def no_links(p):
  for x in [p,*p.parents]:
@@ -59,7 +62,7 @@ def run(manifest_path,destination,report_path,apply=False):
   if not source.is_file() or not inside(source.resolve(),src):raise ExportError('Source outside payload')
   b=source.read_bytes()
   if len(b)>2_000_000 or b'\0' in b or b.startswith((b'PK\x03\x04',b'\x1f\x8b')):raise ExportError('Binary/archive/oversize content')
-  try:b.decode('utf-8')
+  try:public_content(b.decode('utf-8'))
   except UnicodeError as e:raise ExportError('Non-UTF8 content') from e
   if digest(source)!=entry['sha256']:raise ExportError('Payload hash mismatch')
   if target.exists() and (not target.is_file() or digest(target) not in {entry['sha256'],expected_existing.get(str(q))}):raise ExportError('Unexpected destination file content')

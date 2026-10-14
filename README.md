@@ -2,7 +2,7 @@
 
 A source toolkit for AI-assisted video editing: an editing handbook, operating instructions, validated production contracts, Python engines and finishing tools. It is for editors and developers who want an inspectable workflow with explicit human decisions.
 
-**Status:** local prerelease candidate. A fresh Windows installation passes 184 core checks, or 213 with optional graphics. The offline synthetic walkthrough and browser-rendered drafts pass encoded decode and repeat comparisons. Real-production verification requires job-specific evidence. See the [verification scope](docs/verification.md). The toolkit is not a one-click native editor. See the [capability matrix](docs/capabilities.md) for tested features and limits.
+**Status:** v0.1.0-rc.1 is published; this source proposes v0.2.0-rc.1. The expanded candidate has 209 core checks and separate style, graphics and native 3D browser profiles. Final fresh-candidate verification and publication review are required before the proposed release. See the [verification scope](docs/verification.md) and [capability matrix](docs/capabilities.md). Real productions need job-specific evidence.
 
 ## Start here
 
@@ -10,6 +10,7 @@ A source toolkit for AI-assisted video editing: an editing handbook, operating i
 2. Complete [getting started](docs/getting-started.md): diagnostics and synthetic contract validation, with no paid API or model download.
 3. Run the [offline synthetic walkthrough](examples/synthetic-clock/README.md) to inspect timing, draft captions, encoded QA and gate refusals.
 4. Read [architecture](docs/architecture.md), then the [production workflow](docs/workflow.md) before using your own footage.
+5. Choose a specialist in the [skill index](Editing_OS/Skills/README.md) and try the [generated-input examples](docs/new-capabilities.md).
 
 After installation and local configuration, run these from the toolkit root:
 

@@ -32,3 +32,12 @@ $ToolkitPython = '../editing-pack-env/Scripts/python.exe'
 The doctor is diagnostic only. The launcher retains its graphical library and CLI modes; preview servers are foreground children owned by that launcher. Closing it or interrupting a CLI preview stops its owned process tree. It refuses an occupied port 3100. It does not reuse or stop another task's server, install HyperFrames, or register a sign-in task. Logs and process ownership records stay in workspace/cache. A bounded live preview check confirmed HTTP readiness and shutdown on the tested Windows setup; full UI editing/render verification remains pending.
 
 Config files contain paths and environment variable references, never credentials or human approval. Synthetic context examples are fixtures, not approvals. Every real job hashes the current five governing documents and collects its own alignment, EDL, treatment, encoded QA and exact-artifact human review evidence.
+
+## New optional resource fields
+
+`tools.three_module` and `tools.puppeteer_entry` are explicit file paths for the
+native 3D browser profile. Existing configurations remain valid without these
+fields; enabling that profile requires them plus Node, browser, GSAP and Inter.
+The runtime derives matching Three core/addons from the exact installed package.
+Pillow is an optional Python profile, not a JSON tool path. Configuration never
+installs packages or supplies human authority. See [installation](installation.md).

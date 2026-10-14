@@ -1,6 +1,6 @@
 # Getting started
 
-This is the shortest verified core path: diagnose the setup and validate a synthetic contract. It does not require speech models, a native editor, a hosted image account or graphics packages. A rendered synthetic tutorial will be added in the examples step; a complete fresh production workflow is not yet certified.
+This is the shortest core path: diagnose the setup and validate a synthetic contract. It does not require speech models, a native editor, a hosted image account or graphics packages. The included synthetic clock tutorial renders a draft and tests authority refusals; real production workflows require their own evidence.
 
 ## 1. Prepare the three locations
 
@@ -35,7 +35,7 @@ Expected: exit 0 and `"valid": true`. This validates JSON shape and semantic rul
 & $ToolkitPython -B scripts/run_checks.py --config config/toolkit.local.json
 ```
 
-Expected: each group reports `passed: true`, no skipped checks, exit 0. Core contains 184 checks; adding `--graphics` after optional graphics setup runs 213. Results/logs go in `workspace/cache/checks/`. Failures and skips are not successful verification. Test media is generated in external scratch, not taken from your projects.
+Expected: each group reports `passed: true`, no skipped checks, exit 0. Core contains 209 checks; style adds 12, graphics 29 and native 3D browser one test with 24 assertions. All profiles total 251. Results/logs go in `workspace/cache/checks/`. Failures and skips are not successful verification. Test media is generated in external scratch, not taken from your projects.
 
 ## 5. Run the offline draft walkthrough
 
@@ -46,3 +46,12 @@ Follow the [synthetic clock tutorial](../examples/synthetic-clock/README.md). It
 Read [architecture](architecture.md), [capabilities](capabilities.md) and [workflow](workflow.md). Load [START_HERE](../Editing_OS/Skills/START_HERE.md) before directing an editing agent. Keep the real brief, media, contracts and evidence in a new external job folder. Do not copy synthetic approvals into it.
 
 For captions from audio, inspect [alignment setup](optional-tools.md#alignment-and-models) before installing heavy dependencies. Graphics needs the explicit pinned resources. You can work with supplied genuine aligned words without invoking local transcription.
+
+## Explore the new specialists
+
+The published baseline includes the synthetic clock tutorial. This update adds
+four [specialist families](../Editing_OS/Skills/README.md) and [generated PCM,
+palette and 3D examples](new-capabilities.md). Start with offline PCM, install
+Pillow for palette analysis, then explicitly provision the 3D/browser resources.
+Expected results and failure diagnostics are documented with those examples.
+All generated jobs are external drafts; none supplies publication approval.

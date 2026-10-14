@@ -9258,3 +9258,295 @@ Remember:
 > **You have built an editor, not learned a tool. The tools will change many times before the craft changes once — and now they are on their own page, where their changing can never touch the part that matters.**
 
 ---
+
+
+# Chapter 23 — Methods, source scope and verification limits
+
+This chapter provides original reusable method guidance informed by a studied public editing tutorial. The register retains118 studied technique IDs for traceability; they are not118 implemented engines, completed native actions or statistical quality guarantees. Tutorial project assets, transcripts, private study reports and empirical job observations are excluded.
+
+Public study references: [editing tutorial](https://www.youtube.com/watch?v=O6ERELse_QY) and [context reference](https://www.youtube.com/watch?v=qthiuEt_moU). These links establish provenance, not source rights or production readiness.
+
+<a id="method-R01"></a>
+## R01 — Inspect real material and distinguish clocks
+
+Inspect playback and individual frames, then distinguish source timestamps, editor time and output time. Check the actual retained boundary and decode; a requested seek does not prove the selected source frame.
+
+Verify on actual material through the existing intent, timing/treatment, evidence and encoded-review owners. Native application operations remain conditional on installed supported APIs and independent readback.
+
+<a id="method-R02"></a>
+## R02 — Automate known state and preserve bindings
+
+Automate only an understood application state. Preserve bindings and user preferences, expose selected targets and read back changes rather than treating a macro completion as proof.
+
+Verify on actual material through the existing intent, timing/treatment, evidence and encoded-review owners. Native application operations remain conditional on installed supported APIs and independent readback.
+
+<a id="method-R03"></a>
+## R03 — Trace inputs, versions and missing coverage
+
+Record input identity, version, rights and missing coverage. Link review evidence to the exact source bytes; absent footage and an unreviewed file are different gaps.
+
+Verify on actual material through the existing intent, timing/treatment, evidence and encoded-review owners. Native application operations remain conditional on installed supported APIs and independent readback.
+
+<a id="method-R04"></a>
+## R04 — Recover known-good work without overwriting it
+
+Keep a known-good version recoverable. Work in an isolated copy with explicit provenance; a new edit must not silently overwrite either the source or an approved output.
+
+Verify on actual material through the existing intent, timing/treatment, evidence and encoded-review owners. Native application operations remain conditional on installed supported APIs and independent readback.
+
+<a id="method-R05"></a>
+## R05 — Choose audio channels and processing scope deliberately
+
+Choose channel and track processing scope deliberately. Associated source sound may convey meaning; track processing does not replace individual clip or message review.
+
+Verify on actual material through the existing intent, timing/treatment, evidence and encoded-review owners. Native application operations remain conditional on installed supported APIs and independent readback.
+
+<a id="method-R06"></a>
+## R06 — Keep gain and loudness units distinct
+
+Distinguish sample peak, clip gain, true peak and loudness. Record units and actual processing context, then measure the encoded result; no inherited limiter value is a universal default.
+
+Verify on actual material through the existing intent, timing/treatment, evidence and encoded-review owners. Native application operations remain conditional on installed supported APIs and independent readback.
+
+<a id="method-R07"></a>
+## R07 — Protect message-bearing sound and motivate effects
+
+Keep message-bearing speech/sound intelligible and use effects for a specific action or meaning. Frequency/energy detection is diagnostic evidence, not proof that a whoosh or musical hit fits.
+
+Verify on actual material through the existing intent, timing/treatment, evidence and encoded-review owners. Native application operations remain conditional on installed supported APIs and independent readback.
+
+<a id="method-R08"></a>
+## R08 — Correct the relevant problem and keep source limits visible
+
+Correct the relevant exposure, color, sound or crop problem while preserving source limits. A LUT or overshoot-and-return exercise must not conceal clipped or absent information.
+
+Verify on actual material through the existing intent, timing/treatment, evidence and encoded-review owners. Native application operations remain conditional on installed supported APIs and independent readback.
+
+<a id="method-R09"></a>
+## R09 — Separate sound and picture boundaries intentionally
+
+Choose picture and sound boundaries intentionally. J/L cuts use declared placement and reviewable continuity; source and output timing mappings stay explicit.
+
+Verify on actual material through the existing intent, timing/treatment, evidence and encoded-review owners. Native application operations remain conditional on installed supported APIs and independent readback.
+
+<a id="method-R10"></a>
+## R10 — Separate assembly from fine timing and protect retained content
+
+Separate assembly from fine timing. Inspect retained speech/actions, protected tracks and marker behavior before ripple edits or automated trimming.
+
+Verify on actual material through the existing intent, timing/treatment, evidence and encoded-review owners. Native application operations remain conditional on installed supported APIs and independent readback.
+
+<a id="method-R11"></a>
+## R11 — Judge attribution, comic beats and rescue cost
+
+Evaluate attribution, setup/payoff and the cost of a constructed joke. Do not fabricate evidence or retain a failed shot merely because much effort went into it.
+
+Verify on actual material through the existing intent, timing/treatment, evidence and encoded-review owners. Native application operations remain conditional on installed supported APIs and independent readback.
+
+<a id="method-R12"></a>
+## R12 — Fit coverage to spoken order without falsifying evidence
+
+Match coverage to the order of explanation. Allow lead-in and settled recognition time without inventing a causal sequence that the source does not show.
+
+Verify on actual material through the existing intent, timing/treatment, evidence and encoded-review owners. Native application operations remain conditional on installed supported APIs and independent readback.
+
+<a id="method-R13"></a>
+## R13 — Retiming preserves a declared story and sound mapping
+
+Declare constant/variable retiming and sound treatment. Recompute output words after approved cuts and review altered actions; acceleration cannot impersonate measured performance.
+
+Verify on actual material through the existing intent, timing/treatment, evidence and encoded-review owners. Native application operations remain conditional on installed supported APIs and independent readback.
+
+<a id="method-R14"></a>
+## R14 — Motion directs attention through an intentional path
+
+Choose motion to direct attention along an intentional path. Verify anticipation, intermediate poses, curve direction, contact and readable final holds, not only endpoint screenshots.
+
+Verify on actual material through the existing intent, timing/treatment, evidence and encoded-review owners. Native application operations remain conditional on installed supported APIs and independent readback.
+
+<a id="method-R15"></a>
+## R15 — Transitions act on the intended composite
+
+Apply a transition to the intended composite. Check every contributing layer and the midpoint; a decorative movement is not proof of spatial or narrative continuity.
+
+Verify on actual material through the existing intent, timing/treatment, evidence and encoded-review owners. Native application operations remain conditional on installed supported APIs and independent readback.
+
+<a id="method-R16"></a>
+## R16 — Preserve real raster detail and deliberate substitutions
+
+Preserve usable raster detail. Inspect the native crop and deliberate replacement asset rather than stretching pixels or inventing a detail that the source cannot support.
+
+Verify on actual material through the existing intent, timing/treatment, evidence and encoded-review owners. Native application operations remain conditional on installed supported APIs and independent readback.
+
+<a id="method-R17"></a>
+## R17 — Composites keep labels, grouping and coordinates coherent
+
+Keep labels, masks, grouping and coordinate transforms coherent. Verify the visible composite while distinguishing native tracking internals from manual frame-by-frame adjustments.
+
+Verify on actual material through the existing intent, timing/treatment, evidence and encoded-review owners. Native application operations remain conditional on installed supported APIs and independent readback.
+
+<a id="method-R18"></a>
+## R18 — Proof and information density control visual priority
+
+Prioritize the actual claim and control simultaneous information. Make proof readable and attributable; aesthetic complexity must not hide the viewer task.
+
+Verify on actual material through the existing intent, timing/treatment, evidence and encoded-review owners. Native application operations remain conditional on installed supported APIs and independent readback.
+
+<a id="method-R19"></a>
+## R19 — Diagnose boundedly and preserve failed experiments
+
+Test a specific suspected failure with bounded controls. Preserve negative results, intermediate states, performance cost and unknowns; tool output cannot erase contradictory evidence.
+
+Verify on actual material through the existing intent, timing/treatment, evidence and encoded-review owners. Native application operations remain conditional on installed supported APIs and independent readback.
+
+<a id="method-R20"></a>
+## R20 — Finish and review every actual delivery variant
+
+Finish each real delivery variant and watch its exact encode. A transcode creates new bytes and needs new decode, technical and hash-bound human review evidence.
+
+Verify on actual material through the existing intent, timing/treatment, evidence and encoded-review owners. Native application operations remain conditional on installed supported APIs and independent readback.
+
+<a id="method-R21"></a>
+## R21 — Optimize an understood workflow in context
+
+Optimize an understood workflow in context. Navigation shortcuts, supported app APIs and resource budgets must preserve meaning and current project compatibility.
+
+Verify on actual material through the existing intent, timing/treatment, evidence and encoded-review owners. Native application operations remain conditional on installed supported APIs and independent readback.
+
+<a id="method-R22"></a>
+## R22 — Opening and ending shots answer the viewer task
+
+Choose opening and closing shots by the promise and resolution they give the viewer. Inspect attention across cuts and confirm the intended point actually lands.
+
+Verify on actual material through the existing intent, timing/treatment, evidence and encoded-review owners. Native application operations remain conditional on installed supported APIs and independent readback.
+
+## Technique register
+
+P=principle, O=operation, S=application shortcut, E=effect. A partial suffix retains a study limitation. Every row is a studied topic routed to a method; no row certifies implementation.
+
+| ID | Studied topic | Kind | Method | Prerequisites |
+|---|---|---|---|---|
+| T001 | Inspect reference playback and frame-step | O | [R01](#method-R01) | None |
+| T002 | Automate explicit application state | P | [R02](#method-R02) | T001 |
+| T003 | Confirm approved input identity and version | P | [R03](#method-R03) | None |
+| T004 | Maintain an editor working script with comments | O | [R03](#method-R03) | T003 |
+| T005 | Reuse and refresh project templates | O | [R04](#method-R04) | T003 |
+| T006 | Select and route recorded audio channels | O | [R05](#method-R05) | None |
+| T007 | Apply shared track processing and preserve its limitations | O | [R05](#method-R05) | T006 |
+| T008 | Adjust clip gain with units and example context | O | [R06](#method-R06) | T006 |
+| T009 | Apply source-level color and set-specific LUT treatment | O | [R08](#method-R08) | T003 |
+| T010 | Find and apply a named effect preset | S | [R02](#method-R02) | T002 |
+| T011 | Place the playhead from a contextual pointer action | S | [R02](#method-R02) | T002 |
+| T012 | Switch to the intended application window | S | [R02](#method-R02) | T002 |
+| T013 | Separate structural assembly from fine timing | P | [R10](#method-R10) | T003 |
+| T014 | Ripple-remove an unwanted span while protecting retained content | O | [R10](#method-R10) | T013 |
+| T015 | Compare alternate takes with waveform navigation and content checks | O | [R10](#method-R10) | T013 |
+| T016 | Check the slate and unusual source notes | O | [R03](#method-R03) | T003 |
+| T017 | Expose uncertain versus selected decisions | P | [R10](#method-R10) | T003 |
+| T018 | Protect the A-roll base with track locks | O | [R10](#method-R10) | T014 |
+| T019 | Resolve script, footage, and archive references | O | [R03](#method-R03) | T003 |
+| T020 | Fit images while preserving usable native detail | O | [R16](#method-R16) | None |
+| T021 | Adjust correction while recognizing source limits | O | [R08](#method-R08) | T020 |
+| T022 | Retain useful associated source sound | P | [R07](#method-R07) | T006 |
+| T023 | Clarify ambiguous shot intent with its author | P | [R12](#method-R12) | T003 |
+| T024 | Mark useful moments and select source In and Out | O | [R01](#method-R01) | T001 |
+| T025 | Slide a shot to adjust placement | O | [R10](#method-R10) | T018, T024 |
+| T026 | Fit footage to duration through rate adjustment | O | [R13](#method-R13) | T024 |
+| T027 | Assemble an in-camera light reveal with a readable final hold | E | [R13](#method-R13) | T018, T024, T025, T026 |
+| T028 | Introduce incoming audio before its picture: J cut | O | [R09](#method-R09) | T006, T013 |
+| T029 | Carry outgoing audio over the next picture: L cut | O | [R09](#method-R09) | T028 |
+| T030 | Animate picture position and scale for an editorial purpose | O | [R14](#method-R14) | T020 |
+| T031 | Shape a gradual motion start through interpolation | O | [R14](#method-R14) | T030 |
+| T032 | Remove unintended reverse movement in the curve | O | [R14](#method-R14) | T031 |
+| T033 | Lead attention across the cut: eye trace | P | [R14](#method-R14) | T030 |
+| T034 | Label source families and decision states | O | [R03](#method-R03) | T003 |
+| T035 | Protect concentration and take purposeful breaks | P | [R21](#method-R21) | None |
+| T036 | Match multi-action coverage to spoken order | P | [R12](#method-R12) | T013, T024, T026 |
+| T037 | Separate source patching, targeting, and insertion state | O | [R02](#method-R02) | T002, T018 |
+| T038 | Recover matching source audio for a timeline shot | O | [R05](#method-R05) | T022, T037 |
+| T039 | Search and insert a routed SFX asset using a macro | S | [R02](#method-R02) | T002, T037 |
+| T040 | Build a censor-beep treatment | E | [R07](#method-R07) | T008, T024 |
+| T041 | Inspect finer audio units and shape clip edges | O | [R07](#method-R07) | T040 |
+| T042 | Track missing footage and unresolved author questions | O | [R03](#method-R03) | T017, T023 |
+| T043 | Test whether constructed joke attribution and payoff read convincingly | P | [R11](#method-R11) | T013, T036 |
+| T044 | Bind label commands for faster organization | S | [R02](#method-R02) | T002, T034 |
+| T045 | Prioritize intelligible dialogue over competing sound | P | [R07](#method-R07) | T006, T008 |
+| T046 | Decide when stillness or motion supports the edit | P | [R14](#method-R14) | T030, T045 |
+| T047 | Save a supported transition's custom settings | O | [R15](#method-R15) | T010 |
+| T048 | Choose a motion-based handoff while distinguishing spatial continuity | P | [R15](#method-R15) | T030, T033 |
+| T049 | Recover a recent known-working saved version | O | [R04](#method-R04) | T003 |
+| T050 | Span picture layers with an adjustment-layer transition | E | [R15](#method-R15) | T030, T047 |
+| T051 | Avoid uninformative literal B-roll while preserving intentional humor | P | [R12](#method-R12) | T013 |
+| T052 | Find genuinely useful image detail and provenance | O | [R16](#method-R16) | T019, T020 |
+| T053 | Disable an alternative without deleting it | O | [R10](#method-R10) | T013 |
+| T054 | Audition and trim a short music or SFX hit | O | [R07](#method-R07) | T008, T024, T045 |
+| T055 | Arrange clip lanes to expose chronology | O | [R10](#method-R10) | T034 |
+| T056 | Reject a shot despite sunk effort: kill your darlings | P | [R11](#method-R11) | T013, T051 |
+| T057 | Plan script-led coverage, lead-in, holds, and reaction | P | [R12](#method-R12) | T023, T036 |
+| T058 | Save recoverable versions and configure contextual autosave | O | [R04](#method-R04) | T003, T049 |
+| T059 | Verify graph and product assumptions against evidence | P | [R18](#method-R18) | T003, T042 |
+| T060 | Compress waiting without misrepresenting measured performance | P | [R12](#method-R12) | T026, T059 |
+| T061 | Use comparative recordings as supporting evidence | O | [R07](#method-R07) | T008, T019, T022 |
+| T062 | Reuse clean archived shots with identity labels | O | [R03](#method-R03) | T019, T059 |
+| T063 | Capture reproducible bugs and interface context | O | [R19](#method-R19) | T002 |
+| T064 | Accelerate navigation without changing edit timing | S | [R02](#method-R02) | T002 |
+| T065 | Prepare large layered image variants for a deep-zoom joke | E-partial | [R16](#method-R16) | T020, T052 |
+| T066 | Locate, reset, and scrub an effect-panel value | S | [R02](#method-R02) | T002, T030 |
+| T067 | Reuse matching motion while replacing the image asset | E | [R16](#method-R16) | T030, T065 |
+| T068 | Diagnose preview slowdown with bounded tests | O | [R19](#method-R19) | T063 |
+| T069 | Keep sequence, preview, and export geometry explicit | P | [R20](#method-R20) | T020 |
+| T070 | Nest related layers for shared manipulation | O | [R17](#method-R17) | T030, T069 |
+| T071 | Assemble thermal comparison images and readable labels | E-partial | [R17](#method-R17) | T020, T059, T065 |
+| T072 | Overshoot a color adjustment and dial it back | O | [R08](#method-R08) | T021 |
+| T073 | Label product variants and inspect typography and kerning | O | [R17](#method-R17) | T034, T059 |
+| T074 | Try varying clip speed through time remapping | O | [R13](#method-R13) | T026, T030 |
+| T075 | Allocate constrained timing around a comic payoff | P | [R11](#method-R11) | T036, T043, T056, T057 |
+| T076 | Search and audition music for a suitable ending | O | [R07](#method-R07) | T045, T054 |
+| T077 | Audit repeated editing habits and wasted effort | P | [R21](#method-R21) | T056 |
+| T078 | Control simultaneous information and highlight the actual claim | P | [R18](#method-R18) | T033, T059 |
+| T079 | Plan visual choices with output compression in mind | P | [R20](#method-R20) | T069 |
+| T080 | Capture a readable and attributable webpage region | O | [R03](#method-R03) | T020, T052 |
+| T081 | Choose opening and ending shots by intended focal point | P | [R22](#method-R22) | T033, T051 |
+| T082 | Identify schedule buffers and upstream bottlenecks | P | [R21](#method-R21) | T003, T042 |
+| T083 | Adjust music level over time | O | [R07](#method-R07) | T008, T045, T076 |
+| T084 | Track comparison labels to moving footage and recenter picture | E-partial | [R17](#method-R17) | T030, T059, T073 |
+| T085 | Choose a whoosh whose implied motion fits the picture | P | [R07](#method-R07) | T030, T045, T054 |
+| T086 | Capture and freeze a clean data-display frame | O | [R17](#method-R17) | T024, T059, T080 |
+| T087 | Choose software by demonstrated workflow fit | P | [R21](#method-R21) | T077 |
+| T088 | Optimize an understood workflow while preserving its intended result | P | [R21](#method-R21) | T002, T077 |
+| T089 | Reuse supported rendered material and distinguish export mechanisms | O | [R20](#method-R20) | T069 |
+| T090 | Watch the actual encoded output after changes | O | [R20](#method-R20) | T069, T089 |
+| T091 | Hand the identified render to a transcode workflow | S | [R20](#method-R20) | T003, T090 |
+| T092 | Apply a localized masked screen correction | E-partial | [R08](#method-R08) | T009, T021, T030 |
+| T093 | Preserve declared parity between delivery variants | P | [R20](#method-R20) | T003, T090, T092 |
+| T094 | Obtain responsible author and editor review | P | [R20](#method-R20) | T042, T059 |
+| T095 | Separate assembly assistance from creative editing | P | [R10](#method-R10) | T013, T024, T036 |
+| T096 | Preserve settings before resetting preferences | O | [R04](#method-R04) | T003, T058 |
+| T097 | Interpret default-duration units and intermediate settings correctly | O | [R21](#method-R21) | T024, T069 |
+| T098 | Use shuttle monitoring with explicit pitch-preservation context | O | [R01](#method-R01) | T001, T006 |
+| T099 | Inspect through edits and duplicate-frame indicators | O | [R01](#method-R01) | T013, T024 |
+| T100 | Ripple sequence markers with the intended content | O | [R10](#method-R10) | T014, T024 |
+| T101 | Separate undo-history capacity from autosave recovery | O | [R04](#method-R04) | T049, T058 |
+| T102 | Expose useful panel controls and operational state | O | [R02](#method-R02) | T002, T037 |
+| T103 | Choose a contextual missing-media relink route | O | [R03](#method-R03) | T003, T019 |
+| T104 | Cluster, inspect, and preserve shortcut bindings and profiles | S | [R02](#method-R02) | T002, T012, T014 |
+| T105 | Protect active work from untested software upgrades | P | [R04](#method-R04) | T058, T063 |
+| T106 | Reconsider expert advice in its actual context | P | [R21](#method-R21) | T059 |
+| T107 | Explore unfamiliar interface features after foundations | O | [R21](#method-R21) | T001, T102 |
+| T108 | Distinguish correction from grading and aesthetic suitability | P | [R08](#method-R08) | T009, T021 |
+| T109 | Evaluate reversed footage and reattached transitions | O | [R13](#method-R13) | T026, T047, T048 |
+| T110 | Adjust a shared boundary with a rolling edit | O | [R10](#method-R10) | T013, T025 |
+| T111 | Ripple-trim a boundary while preserving protected tracks and markers | O | [R10](#method-R10) | T014, T018 |
+| T112 | Slip source content inside a placed clip and inspect its constraints | O-partial | [R10](#method-R10) | T024, T099 |
+| T113 | Choose a clean frame to hold while an obstruction is absent | O-partial | [R17](#method-R17) | T086 |
+| T114 | Compare track-forward movement with marker-preserving ripple movement | O-partial | [R10](#method-R10) | T100 |
+| T115 | Add an edit across tracks and remove the intended remainder | O | [R10](#method-R10) | T018, T024 |
+| T116 | Time-box feature exploration and record an unsuccessful experiment | P | [R19](#method-R19) | None |
+| T117 | Find the latest saved file of a specified type through a macro | S-partial | [R02](#method-R02) | T003, T049 |
+| T118 | Open a known archive folder directly through a contextual shortcut | S | [R02](#method-R02) | T002, T019 |
+
+## Production boundary
+
+Use existing contracts and capability semantics. Speech requires genuine forced alignment, approved/hash-bound EDL and post-cut retimed words. Subjective treatment requires an explicit genuine selection. Bespoke3D/audio/matte scenes need actual applicable runtime/graphics/caption/audio evidence, exact encoded checks and hash-bound human review. A source score, helper observation, studied method, matching synthetic repeat or integration count supplies none of those approvals.
+
+Retain source clock/decode uncertainty, unavailable proof, failed perceptual controls and unfinished native effects. Match each validation to its claim: a frame does not prove motion, a unit test does not prove a full-size encode and historical hardware throughput does not prove determinism.

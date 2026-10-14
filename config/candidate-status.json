@@ -1,32 +1,22 @@
 {
   "schema": "editing-pack-candidate-status/v1",
-  "stage": "clean-verified-local-candidate",
-  "release_version": "0.1.0-rc.1",
-  "publication_approved": false,
-  "standalone_verified": true,
-  "examples_are_synthetic": true,
+  "release_version": "0.2.0-rc.1",
+  "published_baseline": "0.1.0-rc.1",
+  "status": "proposed capability prerelease; final release review pending",
+  "publication_authorized": false,
+  "video_publication_authority": false,
+  "note": "Preparation snapshot. Release authorization is exact-candidate human review; per-video publication requires its own contract/evidence/review.",
+  "required_profiles": {
+    "core": 209,
+    "style-analysis": 12,
+    "graphics": 29,
+    "3d-browser": 1
+  },
   "pending_steps": [
-    13,
-    14,
-    15,
-    16
-  ],
-  "core_setup_verified": true,
-  "tested_platform": "Windows x64",
-  "tested_python": "3.11.9",
-  "owned_checks_passed": 213,
-  "optional_limits": [
-    "WhisperX/models not executed",
-    "native project editing not verified",
-    "real production source-to-final requires job-specific verification",
-    "other operating systems/Python versions unverified",
-    "tested Edge Windows version preflight failed"
-  ],
-  "documentation_verified": true,
-  "synthetic_walkthrough_verified": true,
-  "privacy_scan_completed": true,
-  "export_negative_cases_verified": 27,
-  "clean_environment_verified": true,
-  "browser_render_verified": true,
-  "tested_browser": "Chrome Headless Shell 152.0.7977.30"
+    "fresh-final-candidate verification",
+    "full privacy freeze",
+    "exact candidate approval",
+    "protected public PR/CI",
+    "tag and independent public verification"
+  ]
 }

@@ -37,3 +37,18 @@ $ToolkitPython = '../editing-pack-env/Scripts/python.exe'
 ```
 
 A [public bug report](../.github/ISSUE_TEMPLATE/bug_report.md) needs revision, platform/Python, tool versions, expected/actual results and a synthetic reproduction. Security/private data uses [SECURITY](../SECURITY.md).
+
+## New profile diagnostics
+
+- Missing Pillow: install `requirements-style.lock.txt` in the selected Python
+  environment; do not add it to core just to conceal a missing optional profile.
+- Missing Three/core/addon: configure the full pinned Three 0.185.0 package, not
+  one copied module. Missing Puppeteer: use the documented version-25 entry.
+- Blank scene or missing required asset: inspect external job/cache logs and
+  readiness. Never replace failure with a silent screenshot or fallback asset.
+- Existing demo job: choose a new job name; the example refuses overwrite.
+- Audio/style `--render`: these create analysis fixtures; rendering is supported
+  only for studio. Follow [example expectations](new-capabilities.md).
+- Slow software 3D: a full-size three-second render can take several minutes.
+  Hardware throughput does not prove decoded repeatability; record independent
+  repeat results for each actual profile and keep failed evidence visible.

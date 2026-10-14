@@ -2,7 +2,7 @@
   "schema": "editing-pack-toolkit/v1",
   "name": "Editing-Pack",
   "layout_version": 1,
-  "release_version": "0.1.0-rc.1",
+  "release_version": "0.2.0-rc.1",
   "editing_os": "Editing_OS",
   "contracts": "Editing_OS/Video Editing/Contracts",
   "workbench": "Editing_OS/Tools/editing-workbench",

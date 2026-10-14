@@ -433,3 +433,7 @@ python -B -m unittest -v test_quality_engine.py
 Then run the quality engine against the final artifact and a second independent
 render. A test suite that passes without examining the actual delivery file is
 necessary but insufficient.
+
+## Bespoke runtime and studied-method scope
+
+A required3D profile fails on missing resources, readiness rejection, blank canvas, wrong host offsets or broken random/forward/backward seeks. Shared/caller disposal remains distinct. Check glyphs, silhouettes, transmission/material effects and actual full-size frames. Preserve backend/cost and hardware repeat failures; verify independent decoded software repeats where claimed. Style/audio diagnostics and the118-technique study register are not realized production evidence. Use existing graphics/audio/caption evidence plus full encoded Quality and exact-hash human review; never add a fabricated waiver or approval to satisfy a gate.

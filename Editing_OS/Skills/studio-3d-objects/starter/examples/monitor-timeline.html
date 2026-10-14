@@ -1,0 +1,18 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Draft object scene</title></head><body><template>
+<link rel="stylesheet" href="assets/css/stage.css">
+<style>@font-face{font-family:ID;src:url('assets/fonts/inter-bold.woff2');font-weight:700}.draft-title{position:absolute;left:8%;top:10%;font:700 64px ID;color:#202124}</style>
+<div id="draft-monitor-timeline" class="st-root" data-composition-id="draft-monitor-timeline" data-width="1080" data-height="1920" data-duration="3"><div class="st-grey"></div><canvas id="draft-monitor-timeline-gl" class="st-gl" width="1080" height="1920"></canvas><div class="draft-title">Synthetic draft</div></div>
+<script type="module">
+import * as THREE from "three";
+import {createStage,makeFolder,makeCard,labelDraw,reprint,MAT,seg,outCubic,wireBeat} from "studio3d";
+const id="draft-monitor-timeline",root=document.getElementById(id),DUR=3;
+const stage=createStage(document.getElementById(id+"-gl"),{width:Number(root.dataset.width),height:Number(root.dataset.height)});
+const {scene,camera,render}=stage,folder=makeFolder();scene.add(folder.group);
+const cards=["Inspect","Arrange","Review"].map((label,i)=>makeCard(i,labelDraw(label,i)));cards.forEach(c=>scene.add(c));
+const glass=new THREE.Mesh(new THREE.SphereGeometry(0.45,24,16),new THREE.MeshPhysicalMaterial({transmission:1,ior:1.49,thickness:0.2,roughness:0.05}));glass.visible=false;scene.add(glass);
+const stamp=new THREE.Mesh(new THREE.BoxGeometry(0.7,0.2,0.5),MAT.aluminium.clone());stamp.visible=false;scene.add(stamp);
+const face=document.createElement("canvas");face.width=512;face.height=320;const g=face.getContext("2d");g.fillStyle="#1B2530";g.fillRect(0,0,512,320);g.fillStyle="#3DD6D0";for(let i=0;i<5;i++)g.fillRect(35+i*87,90,65,130);const tex=new THREE.CanvasTexture(face);tex.colorSpace=THREE.SRGBColorSpace;
+const screen=new THREE.Mesh(new THREE.BoxGeometry(2.8,1.8,0.12),new THREE.MeshPhysicalMaterial({color:0x101014,emissive:0xffffff,emissiveMap:tex,clearcoat:1,roughness:0.3}));screen.visible=false;scene.add(screen);
+function renderAt(t){folder.group.visible=false;cards.forEach(c=>c.visible=false);screen.visible=true;screen.position.set(0,1.35,0);screen.rotation.y=-0.16+0.1*seg(t,0,3); camera.position.set(0.25,3.4,15-0.4*seg(t,0,DUR));camera.lookAt(0,1.4,0);render();}
+const tl=wireBeat({id,T0:0,DUR,renderAt,fontLoads:["700 84px ID","400 46px ID"],onFonts:()=>cards.forEach(reprint)});window.__timelines["draft-monitor-timeline"]=tl;
+</script></template></body></html>

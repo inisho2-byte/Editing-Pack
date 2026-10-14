@@ -48,3 +48,14 @@ External tools remain separate processes/packages with their own terms. The tool
 The handbook is a craft reference; active contracts define execution and publication. [Claim register](../Editing_OS/Skills/Evidence/CLAIM_REGISTER.md) qualifies timing, loudness, platform and style heuristics. Numeric defaults are review starting points unless the current delivery contract establishes them.
 
 Some schema/evidence formats retain arete-prefixed identifiers for compatibility. These are contract identifiers, not a required remote service or private filesystem dependency.
+
+## Optional analysis and physical object layer
+
+Audio-reactive, motion-recipe, procedural-motion and studio-3d instructions live
+under the existing Skills root and load only for applicable work. `audio_motion`
+uses standard-library PCM/FFT analysis; `style_inspect` uses optional Pillow for
+bounded image observations. The owned Three.js starter provides absolute-time
+object scenes behind external, explicitly configured resources. Shared runtime
+guards keep analysis, test sites, caches and generated media outside source.
+These layers consume existing production contracts and never add a new approval
+authority or imply installation of studied vendor runtimes.

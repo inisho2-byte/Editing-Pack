@@ -1,6 +1,6 @@
 # Installation
 
-This candidate is being prepared for release. The tested setup is Windows x64 with Python 3.11.9; other platforms still require fresh verification. Core tooling is installed separately from optional editors, models and graphics packages. Keep the toolkit checkout, dependencies and job workspace in separate folders.
+The published baseline is v0.1.0-rc.1; this update proposes v0.2.0-rc.1. The tested setup is Windows x64 with Python 3.11.9; other platforms still require fresh verification. Core tooling is installed separately from optional editors, models and graphics packages. Keep the toolkit checkout, dependencies and job workspace in separate folders.
 
 ## Core (PowerShell)
 
@@ -56,3 +56,21 @@ Ideogram execution requires the `IDEOGRAM_API_KEY` environment variable and the 
 The Resolve mailbox/MCP integration is a guarded prototype, not a complete native editor. Install `requirements-resolve.lock.txt` into a separate environment only if you need it. Configure a mailbox inside the workspace and supply `EDITING_PACK_RESOLVE_MAILBOX`, `EDITING_PACK_RESOLVE_PROJECT_ID` and `EDITING_PACK_RESOLVE_PROJECT_NAME` to the Lua/native application process too. JSON config cannot configure another process automatically. The bridge requires an exact empty test project and preserves write/readback/cleanup guards. No native application is opened by the check runner. Premiere and Final Cut remain conditional on installed application APIs/DTDs; CapCut native interchange is not implemented.
 
 Third-party specialist clones are optional, externally installed tools. They are not copied into this repository and do not grant Editing OS production authority.
+
+## Optional style analysis and native 3D browser profiles
+
+```powershell
+../editing-pack-env/Scripts/python.exe -m pip install --only-binary=:all: -r requirements-style.lock.txt
+npm install --prefix ../editing-pack-graphics --ignore-scripts --no-audit --no-fund --save-exact three@0.185.0 puppeteer-core@25.13.0
+../editing-pack-env/Scripts/python.exe -B scripts/run_checks.py --config config/toolkit.local.json --style-analysis --graphics --3d-browser
+```
+
+Pillow 12.3.0 is optional; core/audio checks do not need it. Use the graphics setup
+above first. Add `tools.three_module` pointing to
+`node_modules/three/build/three.module.js` and `tools.puppeteer_entry` pointing to
+`node_modules/puppeteer-core/lib/puppeteer/puppeteer-core.js`. The runtime requires
+Three 0.185.0 and derives its matching core/addon files; retain package metadata
+and licenses. Puppeteer 25 uses this entry rather than the older lib/cjs path.
+Configured Node and browser paths must be executable files. No native Blender,
+segmentation model or vendor clone is installed by this profile. See the
+[new examples](new-capabilities.md) and [verification](verification.md).
